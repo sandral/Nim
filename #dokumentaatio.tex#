@@ -1,0 +1,9 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[finnish]{babel}
+\title{Dokumentaatio\\Ohjelmoinnin harjoitustyö kesä 2014\\Sandra Luhtaniemi}
+\begin{document}
+\maketitle
+\noindent
+\section{}
+\end{document}
