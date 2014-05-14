@@ -1,4 +1,3 @@
- 
 package Nim;
 
 import java.util.Iterator;
@@ -28,13 +27,15 @@ public class NimGame {
         int round = 0;
         boolean continueGame = true;
 
+        Player currentPlayer = p1;
+
         while (continueGame) {
             round = round + 1;
             System.out.println(round + ". kierros");
-
             int[] stacks = createStacks(round + 1);
 
-            //tikkujen tulostus tekstiversiota varten.
+                        
+            System.out.println(currentPlayer.getName() + ", valitse kuinka monta tikkua haluat poistaa ja mistä kasasta.");
 
             for (int i = 0; i < stacks.length; i++) {
                 for (int j = 0; j < stacks[i]; j++) {
@@ -42,7 +43,13 @@ public class NimGame {
                 }
                 System.out.println();
             }
+            int amount = Integer.parseInt(scanner.nextLine());
+            int whichStack = Integer.parseInt(scanner.nextLine());
             
+            stacks[whichStack] = stacks[whichStack] - amount;
+            
+            
+
             System.out.println("Jatketaanko? k/e");
             String answer = scanner.nextLine();
             if (answer.equals("e")) {
@@ -54,7 +61,7 @@ public class NimGame {
     public int[] createStacks(int n) {
         Random random = new Random();
         int[] stacks = new int[n];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < n; i++) {
             int stack = random.nextInt(10) + 1;
             stacks[i] = stack;
         }
