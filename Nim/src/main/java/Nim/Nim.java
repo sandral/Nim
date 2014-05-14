@@ -7,9 +7,12 @@
 package Nim;
 
 public class Nim {
+     
     
     
      public static void main(String[] args) {
-     
+         NimGame game = new NimGame();
+         
+         game.beginGame();
      }
 }
