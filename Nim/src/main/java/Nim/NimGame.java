@@ -1,36 +1,19 @@
- /
+ 
 package Nim;
 
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 
-
-
 public class NimGame {
 
     public NimGame() {
-    }
-
-    public Player getP1() {
-        return p1;
-    }
-
-    public void setP1(Player p1) {
-        this.p1 = p1;
-    }
-
-    public Player getP2() {
-        return p2;
-    }
-
-    public void setP2(Player p2) {
-        this.p2 = p2;
     }
     Player p1;
     Player p2;
 
     public void beginGame() {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Pelaaja 1: ");
         String player1 = scanner.nextLine();
@@ -42,31 +25,39 @@ public class NimGame {
 
         System.out.println("Peli alkaa!");
 
-        createStacks();
+        int round = 0;
+        boolean continueGame = true;
 
-        //tikkujen tulostus tekstiversiota varten.
-        for (Stack s : createStacks()) {
+        while (continueGame) {
+            round = round + 1;
+            System.out.println(round + ". kierros");
 
-            for (int i = 0; i < s.count; i++) {
-                System.out.print("|");
+            int[] stacks = createStacks(round + 1);
+
+            //tikkujen tulostus tekstiversiota varten.
+
+            for (int i = 0; i < stacks.length; i++) {
+                for (int j = 0; j < stacks[i]; j++) {
+                    System.out.print("|");
+                }
+                System.out.println();
             }
-            System.out.println();
+            
+            System.out.println("Jatketaanko? k/e");
+            String answer = scanner.nextLine();
+            if (answer.equals("e")) {
+                continueGame = false;
+            }
         }
     }
 
-    public Stack[] createStacks() {
+    public int[] createStacks(int n) {
         Random random = new Random();
-        Stack[] stacks = new Stack[3];
+        int[] stacks = new int[n];
         for (int i = 0; i < 3; i++) {
-            Stack s = new Stack(random.nextInt(10) + 1);
-            stacks[i] = s;
+            int stack = random.nextInt(10) + 1;
+            stacks[i] = stack;
         }
         return stacks;
     }
-
-    public int reduceStack(Stack stack, int i) {
-        stack.setCount(i);
-        return i;
-    }
-
 }
