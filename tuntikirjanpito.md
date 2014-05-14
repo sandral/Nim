@@ -10,3 +10,4 @@ Käytetty aika: n. 2h
 
 ####Keskiviikko 14.5.
 Aloitin dokumentaation latexilla, mutta sitten huomasin, että siihen pitää käyttää markdownia. Pähkäilin sen kanssa hetken, kunnes ymmärsin mikä on pelin henki. 
+Aloitin ohjelmoimaan peliä, teen aluksi tekstipohjaisen version ja myöhemmin graafisen käyttöliittymän. 
