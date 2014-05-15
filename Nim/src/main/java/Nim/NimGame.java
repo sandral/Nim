@@ -7,26 +7,37 @@ import java.util.Scanner;
 public class NimGame {
 
     Scanner scanner = new Scanner(System.in);
+    int round;
+    Player currentPlayer;
     Player p1;
     Player p2;
-    Player currentPlayer;
-    int round;
 
-    public NimGame(Player p1, Player p2) {
-        this.p1 = p1;
-        this.p2 = p2;
+    public NimGame() {
+        
     }
 
     public void newMatch() {
-
+        currentPlayer = new Player("player"); //kulloinkin vuorossa oleva pelaaja
+        System.out.println("Pelaaja 1, anna nimesi: ");
+        String player1 = scanner.nextLine();
+        p1 = new Player(player1);
+        System.out.println("Pelaaja 2, anna nimesi: ");
+        String player2 = scanner.nextLine();
+        p2 = new Player(player2);
+        
+        
         System.out.println("Peli alkaa!");
-
         round = 0;
 
-        while (round <= 8) {
+        while (round <= 8) { //pelissä kahdeksan kierrosta
             round = round + 1;
             System.out.println(round + ". kierros");
-
+            if (round%2 == 0) {
+                currentPlayer = p1;
+            }
+            else {
+                currentPlayer = p2;
+            }
 
             oneRound(round);
 
@@ -35,7 +46,7 @@ public class NimGame {
     }
 
     public int[] oneTurn(int[] stacks) { //Yksi pelivuoro
-        System.out.println("asdjflkasjdfölkajsdölkfja");
+        System.out.println(currentPlayer.getName() + ", valitse kuinka monta tikkua haluat poistaa ja mistä kasasta:");
         for (int i = 0; i < stacks.length; i++) {
             for (int j = 0; j < stacks[i]; j++) {
                 System.out.print("|");
@@ -51,7 +62,7 @@ public class NimGame {
     }
 
     public void oneRound(int round) { //Yksi kierros peliä
-        System.out.println("lallalllalla");
+        
         int[] stacks = createStacks(round + 1);
         /*for (int i = 0; i < stacks.length; i++) {
          System.out.println(stacks[i]);
@@ -60,14 +71,19 @@ public class NimGame {
         while (!kissa) { //silmukan suoritusta jatketaan niin kauan, kuin yhdestäkin kasasta löytyy tavaraa.
             kissa = true;
             oneTurn(stacks);
-            
+            if (currentPlayer == p1) {
+                currentPlayer = p2;
+            }
+            else {
+                currentPlayer = p1;
+            }
             for (int i = 0; i < stacks.length; i++) {
                 if (stacks[i] > 0) {
                     kissa = false;
                 }
             }
         }
-        System.out.println("kissa");
+        System.out.println("Peli päättyi, voittaja on: " );
 
     }
 
