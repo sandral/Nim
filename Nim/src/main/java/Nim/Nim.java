@@ -6,13 +6,24 @@
 
 package Nim;
 
+import java.util.Scanner;
+
 public class Nim {
      
-    
+    static Scanner scanner = new Scanner(System.in);
     
      public static void main(String[] args) {
-         NimGame game = new NimGame();
+         System.out.println("Pelaaja 1:");
+         String player1 = scanner.nextLine();
          
-         game.beginGame();
+         System.out.println("Pelaaja 2:");
+         String player2 = scanner.nextLine();
+         
+         Player p1 = new Player(player1);
+         Player p2 = new Player(player2);
+          
+         NimGame game = new NimGame(p1, p2);
+         
+         game.newMatch();
      }
 }
