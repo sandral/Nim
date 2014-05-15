@@ -22,25 +22,20 @@ public class NimGame {
         System.out.println("Peli alkaa!");
 
         round = 0;
-        boolean continueGame = true;
 
-        while (continueGame) {
+        while (round <= 8) {
             round = round + 1;
             System.out.println(round + ". kierros");
-            int[] stacks = createStacks(round + 1);
 
-            oneRound(stacks);
 
-            System.out.println("Jatketaanko? k/e");
-            String answer = scanner.nextLine();
-            if (answer.equals("e")) {
-                continueGame = false;
-            }
+            oneRound(round);
+
+
         }
     }
 
     public int[] oneTurn(int[] stacks) { //Yksi pelivuoro
-        System.out.println(currentPlayer.getName() + ", valitse kuinka monta tikkua haluat poistaa ja mistä kasasta.");
+        System.out.println("asdjflkasjdfölkajsdölkfja");
         for (int i = 0; i < stacks.length; i++) {
             for (int j = 0; j < stacks[i]; j++) {
                 System.out.print("|");
@@ -55,20 +50,24 @@ public class NimGame {
         return stacks; //palauttaa taulukon, joka sisältää kasojen tilanteet tämän vuoron jälkeen.
     }
 
-    public void oneRound(int[] stacks) { //Yksi kierros peliä
-        boolean stacksAreEmpty = false;
-        while (stacksAreEmpty = false) {
-            stacksAreEmpty = true;
+    public void oneRound(int round) { //Yksi kierros peliä
+        System.out.println("lallalllalla");
+        int[] stacks = createStacks(round + 1);
+        /*for (int i = 0; i < stacks.length; i++) {
+         System.out.println(stacks[i]);
+         }*/
+        boolean kissa = false; //kertoo, ovatko kaikki kasat tyhjiä
+        while (!kissa) { //silmukan suoritusta jatketaan niin kauan, kuin yhdestäkin kasasta löytyy tavaraa.
+            kissa = true;
+            oneTurn(stacks);
+            
             for (int i = 0; i < stacks.length; i++) {
                 if (stacks[i] > 0) {
-                    stacksAreEmpty = false;
+                    kissa = false;
                 }
             }
-
-            oneTurn(stacks);
-
         }
-
+        System.out.println("kissa");
 
     }
 
