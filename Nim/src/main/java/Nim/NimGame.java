@@ -70,20 +70,21 @@ public class NimGame {
         boolean kissa = false; //kertoo, ovatko kaikki kasat tyhjiä
         while (!kissa) { //silmukan suoritusta jatketaan niin kauan, kuin yhdestäkin kasasta löytyy tavaraa.
             kissa = true;
-            oneTurn(stacks);
-            if (currentPlayer == p1) {
+            if (currentPlayer == p1) { //Pelivuoro vaihtuu.
                 currentPlayer = p2;
             }
             else {
                 currentPlayer = p1;
             }
+            oneTurn(stacks);
+            
             for (int i = 0; i < stacks.length; i++) {
                 if (stacks[i] > 0) {
                     kissa = false;
                 }
             }
         }
-        System.out.println("Peli päättyi, voittaja on: " );
+        System.out.println("Peli päättyi, kierroksen " + round + " voittaja on: " + currentPlayer.getName());
 
     }
 
