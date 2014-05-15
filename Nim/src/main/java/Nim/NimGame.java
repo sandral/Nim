@@ -30,7 +30,7 @@ public class NimGame {
         System.out.println("Peli alkaa!");
         round = 0;
 
-        while (round <= 2) { //pelissä kahdeksan kierrosta
+        while (round <= 2) { //pelissä kolme kierrosta
             round = round + 1;
             System.out.println(round + ". kierros");
             if (round % 2 == 0) {
