@@ -13,7 +13,6 @@ public class NimGame {
     Player p2;
 
     public NimGame() {
-        
     }
 
     public void newMatch() {
@@ -21,28 +20,30 @@ public class NimGame {
         System.out.println("Pelaaja 1, anna nimesi: ");
         String player1 = scanner.nextLine();
         p1 = new Player(player1);
+        p1.setScore(0);
+
         System.out.println("Pelaaja 2, anna nimesi: ");
         String player2 = scanner.nextLine();
         p2 = new Player(player2);
-        
-        
+        p2.setScore(0);
+
         System.out.println("Peli alkaa!");
         round = 0;
 
-        while (round <= 8) { //pelissä kahdeksan kierrosta
+        while (round <= 2) { //pelissä kahdeksan kierrosta
             round = round + 1;
             System.out.println(round + ". kierros");
-            if (round%2 == 0) {
+            if (round % 2 == 0) {
                 currentPlayer = p1;
-            }
-            else {
+            } else {
                 currentPlayer = p2;
             }
 
             oneRound(round);
 
-
         }
+        System.out.println("Pelaajan " + p1.getName() + " pisteet: " + p1.getScore());
+        System.out.println("Pelaajan " + p2.getName() + " pisteet: " + p2.getScore());
     }
 
     public int[] oneTurn(int[] stacks) { //Yksi pelivuoro
@@ -62,7 +63,7 @@ public class NimGame {
     }
 
     public void oneRound(int round) { //Yksi kierros peliä
-        
+
         int[] stacks = createStacks(round + 1);
         /*for (int i = 0; i < stacks.length; i++) {
          System.out.println(stacks[i]);
@@ -72,21 +73,28 @@ public class NimGame {
             kissa = true;
             if (currentPlayer == p1) { //Pelivuoro vaihtuu.
                 currentPlayer = p2;
-            }
-            else {
+            } else {
                 currentPlayer = p1;
             }
             oneTurn(stacks);
-            
+
             for (int i = 0; i < stacks.length; i++) {
                 if (stacks[i] > 0) {
                     kissa = false;
                 }
             }
         }
+        if (currentPlayer == p1) {
+            p1.increaseScore();
+        }
+        else {
+            p2.increaseScore();
+        }
+        
         System.out.println("Peli päättyi, kierroksen " + round + " voittaja on: " + currentPlayer.getName());
-
+        System.out.println();
     }
+    
 
     public int[] createStacks(int n) {
         Random random = new Random();

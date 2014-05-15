@@ -17,7 +17,10 @@ public class Player {
     public String getName() {
         return name;
     }
-
+    public void increaseScore() {
+        score = score + 1;
+    }
+    
     public void setScore(int score) {
         this.score = score;
     }
