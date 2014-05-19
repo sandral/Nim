@@ -47,17 +47,41 @@ public class NimGame {
     }
 
     public int[] oneTurn(int[] stacks) { //Yksi pelivuoro
-        System.out.println(currentPlayer.getName() + ", valitse kuinka monta tikkua haluat poistaa ja mistä kasasta:");
+        System.out.println(currentPlayer.getName() + ", mistä kasasta haluat poistaa tikun?");
         for (int i = 0; i < stacks.length; i++) {
             for (int j = 0; j < stacks[i]; j++) {
                 System.out.print("|");
             }
             System.out.println();
         }
-        int amount = Integer.parseInt(scanner.nextLine());
+
         int whichStack = Integer.parseInt(scanner.nextLine());
 
-        stacks[whichStack] = stacks[whichStack] - amount;
+        while (whichStack > stacks.length || stacks[whichStack-1] == 0) {
+
+            if (whichStack > stacks.length) {
+                System.out.println("Kasoja on vähemmän kuin " + whichStack + ", anna jokin muu luku.");
+            } else {
+                System.out.println("Valitsemasi kasa on tyhjä, valitse jokin muu kasa.");
+            }
+
+            whichStack = Integer.parseInt(scanner.nextLine());
+
+        }
+
+        System.out.println("Kuinka monta tikkua haluat poistaa?");
+
+        int amount = Integer.parseInt(scanner.nextLine());
+
+        while (amount > stacks[whichStack-1]) {
+            System.out.println("Kasassa ei ole noin montaa tikkua, anna jokin muu luku.");
+            amount = Integer.parseInt(scanner.nextLine());
+
+        }
+
+        stacks[whichStack - 1] = stacks[whichStack - 1] - amount;
+
+
 
         return stacks; //palauttaa taulukon, joka sisältää kasojen tilanteet tämän vuoron jälkeen.
     }
@@ -86,15 +110,13 @@ public class NimGame {
         }
         if (currentPlayer == p1) {
             p1.increaseScore();
-        }
-        else {
+        } else {
             p2.increaseScore();
         }
-        
+
         System.out.println("Peli päättyi, kierroksen " + round + " voittaja on: " + currentPlayer.getName());
         System.out.println();
     }
-    
 
     public int[] createStacks(int n) {
         Random random = new Random();
