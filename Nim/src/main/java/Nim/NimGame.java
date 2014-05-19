@@ -94,7 +94,7 @@ public class NimGame {
 
     public void oneRound(int round) { //Yksi kierros peliä
 
-        int[] stacks = createStacks(round + 1);
+        int[] stacks = createStacks(round);
         /*for (int i = 0; i < stacks.length; i++) {
          System.out.println(stacks[i]);
          }*/
@@ -126,8 +126,8 @@ public class NimGame {
 
     public int[] createStacks(int n) {
         Random random = new Random();
-        int[] stacks = new int[n];
-        for (int i = 0; i < n; i++) {
+        int[] stacks = new int[n + 1];
+        for (int i = 0; i < n + 1; i++) {
             int stack = random.nextInt(10) + 1;
             stacks[i] = stack;
         }

@@ -16,7 +16,9 @@ import static org.junit.Assert.*;
  * @author reipas
  */
 public class Test1 {
+    NimGame game;
         
+    
     public Test1() {
     }
     
@@ -30,6 +32,8 @@ public class Test1 {
     
     @Before
     public void setUp() {
+        game = new NimGame();
+    
         
     
     }
@@ -37,6 +41,23 @@ public class Test1 {
     @After
     public void tearDown() {
     }
+    
+    @Test
+    public void kasojaOnAlussaKaksi() {
+        int round = 1;
+        int[] stacks = game.createStacks(1);
+        assertEquals(2, stacks.length);
+    }
+    
+    @Test
+    public void kasojenMaaraKasvaaKierrostenMukaan() {
+        for (int i = 1; i < 10; i++) {
+            int round = i;
+            int[] stacks = game.createStacks(i);
+            assertEquals(round+1, stacks.length);
+        }
+    }
+    
     
         
     // TODO add test methods here.
