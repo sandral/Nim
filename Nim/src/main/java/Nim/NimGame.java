@@ -57,11 +57,15 @@ public class NimGame {
 
         int whichStack = Integer.parseInt(scanner.nextLine());
 
-        while (whichStack > stacks.length || stacks[whichStack-1] == 0) {
+        while (whichStack == 0 || whichStack > stacks.length || stacks[whichStack - 1] == 0) {
 
-            if (whichStack > stacks.length) {
+            if (whichStack == 0) {
+                System.out.println("Valitse jokin nollaa suurempi luku.");
+            } else if (whichStack > stacks.length) {
                 System.out.println("Kasoja on vähemmän kuin " + whichStack + ", anna jokin muu luku.");
-            } else {
+            }
+
+            if (whichStack != 0 && whichStack <= stacks.length && stacks[whichStack - 1] == 0) {
                 System.out.println("Valitsemasi kasa on tyhjä, valitse jokin muu kasa.");
             }
 
@@ -73,15 +77,17 @@ public class NimGame {
 
         int amount = Integer.parseInt(scanner.nextLine());
 
-        while (amount > stacks[whichStack-1]) {
-            System.out.println("Kasassa ei ole noin montaa tikkua, anna jokin muu luku.");
+        while (amount > stacks[whichStack - 1] || amount == 0) {
+
+            if (amount > stacks[whichStack - 1]) {
+                System.out.println("Kasassa ei ole noin montaa tikkua, anna jokin muu luku.");
+            } else if (amount == 0) {
+                System.out.println("Sinun on otettava vähintään yksi tikku");
+            }
             amount = Integer.parseInt(scanner.nextLine());
 
         }
-
         stacks[whichStack - 1] = stacks[whichStack - 1] - amount;
-
-
 
         return stacks; //palauttaa taulukon, joka sisältää kasojen tilanteet tämän vuoron jälkeen.
     }
