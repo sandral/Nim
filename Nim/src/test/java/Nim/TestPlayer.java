@@ -21,6 +21,7 @@ public class TestPlayer {
     static Random random;
     static String s;
     static Player p1;
+    static Player p2;
     
     public TestPlayer() {
     }
@@ -30,6 +31,7 @@ public class TestPlayer {
         random = new Random();
         s = "abcdefghijklmnopqrstuvxyzåäö";
         p1 = new Player("alskdf");
+        p2 = new Player("asdjf");
     }
 
     @AfterClass
@@ -57,7 +59,7 @@ public class TestPlayer {
     
     @Test
     public void scoreOnAlussaNolla() {
-        assertEquals(0, p1.getScore());
+        assertEquals(0, p2.getScore());
     }
     
     @Test

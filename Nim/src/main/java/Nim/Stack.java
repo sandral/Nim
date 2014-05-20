@@ -2,17 +2,12 @@ package Nim;
 
 public class Stack {
 
-    int index;
     int size;
 
-    public Stack(int index, int size) {
-        this.index = index;
+    public Stack(int size) {
         this.size = size;
     }
 
-    public int getIndex() {
-        return index;
-    }
 
     public int getSize() {
         return size;
@@ -24,11 +19,11 @@ public class Stack {
 
     @Override
     public String toString() {
-        String s = getIndex() + ": ";
+        String s = "";
         for (int i = 0; i < size; i++) {
             s = s + "|";
         }
-        return "s";
+        return s;
     }
 
     public void decrease(int amount) {

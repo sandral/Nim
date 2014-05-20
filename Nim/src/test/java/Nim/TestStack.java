@@ -27,9 +27,9 @@ public class TestStack {
 
     @BeforeClass
     public static void setUpClass() {
-        stack1 = new Stack(1, 1);
-        stack2 = new Stack(1, 17);
-        stack3 = new Stack(1, 3);
+        stack1 = new Stack(1);
+        stack2 = new Stack(17);
+        stack3 = new Stack(3);
     }
 
     @AfterClass
@@ -47,7 +47,7 @@ public class TestStack {
     @Test
     public void testGetSize() {
         for (int i = 0; i < 10; i++) {
-            Stack s = new Stack(i, i);
+            Stack s = new Stack(i);
             assertEquals(i, s.getSize());
         }
     }
@@ -57,14 +57,6 @@ public class TestStack {
         for (int i = 0; i < 10; i++) {
             stack1.setSize(i);
             assertEquals(i, stack1.getSize());
-        }
-    }
-
-    @Test
-    public void testGetIndex() {
-        for (int i = 0; i < 10; i++) {
-            Stack s = new Stack(i, i);
-            assertEquals(i, s.getIndex());
         }
     }
 
@@ -101,7 +93,7 @@ public class TestStack {
             if (r1-r2 > 0) {
                 r3 = r1-r2;
             }
-            Stack s = new Stack(i, r1);
+            Stack s = new Stack(r1);
             s.decrease(r2);
             assertEquals(r3, s.getSize());            
         }

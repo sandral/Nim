@@ -20,12 +20,12 @@ public class NimGame {
         System.out.println("Pelaaja 1, anna nimesi: ");
         String player1 = scanner.nextLine();
         p1 = new Player(player1);
-        p1.setScore(0);
+
 
         System.out.println("Pelaaja 2, anna nimesi: ");
         String player2 = scanner.nextLine();
         p2 = new Player(player2);
-        p2.setScore(0);
+
 
         System.out.println("Peli alkaa!");
         round = 0;
@@ -42,30 +42,27 @@ public class NimGame {
             oneRound(round);
 
         }
-        System.out.println("Pelaajan " + p1.getName() + " pisteet: " + p1.getScore());
-        System.out.println("Pelaajan " + p2.getName() + " pisteet: " + p2.getScore());
+        System.out.println(p1.toString());
+        System.out.println(p2.toString());
     }
 
-    public int[] oneTurn(int[] stacks) { //Yksi pelivuoro
+    public Stack[] oneTurn(Stack[] stacks) { //Yksi pelivuoro
         System.out.println(currentPlayer.getName() + ", mistä kasasta haluat poistaa tikun?");
         for (int i = 0; i < stacks.length; i++) {
-            for (int j = 0; j < stacks[i]; j++) {
-                System.out.print("|");
-            }
-            System.out.println();
+            System.out.println(stacks[i].toString());
         }
 
         int whichStack = Integer.parseInt(scanner.nextLine());
 
-        while (whichStack == 0 || whichStack > stacks.length || stacks[whichStack - 1] == 0) {
+        while (whichStack <= 0 || whichStack > stacks.length || stacks[whichStack - 1].isEmpty()) {
 
-            if (whichStack == 0) {
+            if (whichStack <= 0) {
                 System.out.println("Valitse jokin nollaa suurempi luku.");
             } else if (whichStack > stacks.length) {
                 System.out.println("Kasoja on vähemmän kuin " + whichStack + ", anna jokin muu luku.");
             }
 
-            if (whichStack != 0 && whichStack <= stacks.length && stacks[whichStack - 1] == 0) {
+            if (whichStack > 0 && whichStack <= stacks.length && stacks[whichStack - 1].isEmpty()) {
                 System.out.println("Valitsemasi kasa on tyhjä, valitse jokin muu kasa.");
             }
 
@@ -77,30 +74,28 @@ public class NimGame {
 
         int amount = Integer.parseInt(scanner.nextLine());
 
-        while (amount > stacks[whichStack - 1] || amount == 0) {
+        while (amount > stacks[whichStack - 1].getSize() || amount <= 0) {
 
-            if (amount > stacks[whichStack - 1]) {
+            if (amount > stacks[whichStack - 1].getSize()) {
                 System.out.println("Kasassa ei ole noin montaa tikkua, anna jokin muu luku.");
-            } else if (amount == 0) {
+            } else if (amount <= 0) {
                 System.out.println("Sinun on otettava vähintään yksi tikku");
             }
             amount = Integer.parseInt(scanner.nextLine());
 
         }
-        stacks[whichStack - 1] = stacks[whichStack - 1] - amount;
+        stacks[whichStack - 1].decrease(amount);
 
         return stacks; //palauttaa taulukon, joka sisältää kasojen tilanteet tämän vuoron jälkeen.
     }
 
     public void oneRound(int round) { //Yksi kierros peliä
 
-        int[] stacks = createStacks(round);
-        /*for (int i = 0; i < stacks.length; i++) {
-         System.out.println(stacks[i]);
-         }*/
-        boolean kissa = false; //kertoo, ovatko kaikki kasat tyhjiä
-        while (!kissa) { //silmukan suoritusta jatketaan niin kauan, kuin yhdestäkin kasasta löytyy tavaraa.
-            kissa = true;
+        Stack[] stacks = createStacks(round);
+
+        boolean allStacksEmpty = false; //kertoo, ovatko kaikki kasat tyhjiä
+        while (!allStacksEmpty) { //silmukan suoritusta jatketaan niin kauan, kuin yhdestäkin kasasta löytyy tavaraa.
+            allStacksEmpty = true;
             if (currentPlayer == p1) { //Pelivuoro vaihtuu.
                 currentPlayer = p2;
             } else {
@@ -109,8 +104,8 @@ public class NimGame {
             oneTurn(stacks);
 
             for (int i = 0; i < stacks.length; i++) {
-                if (stacks[i] > 0) {
-                    kissa = false;
+                if (!stacks[i].isEmpty()) {
+                    allStacksEmpty = false;
                 }
             }
         }
@@ -120,16 +115,17 @@ public class NimGame {
             p2.increaseScore();
         }
 
-        System.out.println("Peli päättyi, kierroksen " + round + " voittaja on: " + currentPlayer.getName());
+        System.out.println("Kierroksen " + round + " voittaja: " + currentPlayer.toString());
         System.out.println();
     }
 
-    public int[] createStacks(int n) {
+    public Stack[] createStacks(int n) {
         Random random = new Random();
-        int[] stacks = new int[n + 1];
+        Stack[] stacks = new Stack[n + 1];
         for (int i = 0; i < n + 1; i++) {
-            int stack = random.nextInt(10) + 1;
-            stacks[i] = stack;
+            int r = random.nextInt(10) + 1;
+            Stack s = new Stack(r);
+            stacks[i] = s;
         }
         return stacks;
     }
