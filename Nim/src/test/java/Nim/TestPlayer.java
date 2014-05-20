@@ -4,6 +4,7 @@
  */
 package Nim;
 
+import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,28 +17,68 @@ import static org.junit.Assert.*;
  * @author reipas
  */
 public class TestPlayer {
+
+    static Random random;
+    static String s;
+    static Player p1;
     
     public TestPlayer() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
+        random = new Random();
+        s = "abcdefghijklmnopqrstuvxyzåäö";
+        p1 = new Player("alskdf");
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+
+    @Test
+    public void testGetName() {
+        for (int i = 0; i < 10; i++) {
+            int r = random.nextInt(27);
+            char c = s.charAt(r);
+            String name = "" + c;
+            Player p1 = new Player(name);
+            assertEquals(name, p1.getName());
+        }
+    }
+    
+    @Test
+    public void scoreOnAlussaNolla() {
+        assertEquals(0, p1.getScore());
+    }
+    
+    @Test
+    public void testIncreaseScore() {
+        for (int i = 0; i < 10; i++) {
+            p1.increaseScore();
+            assertEquals(i+1, p1.getScore());
+        }
+    }
+    
+    @Test
+    public void testIncreaseScoreRandom() {
+        for (int i = 0; i < 5; i++) {
+            Player p = new Player("alskjdf");
+            int r = random.nextInt(10);
+            for (int j = 0; j < r; j++) {
+                p.increaseScore();
+            }
+            assertEquals(r, p.getScore());
+        }
+    }
+    
+
 }

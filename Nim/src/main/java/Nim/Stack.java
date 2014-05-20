@@ -32,8 +32,12 @@ public class Stack {
     }
 
     public void decrease(int amount) {
-        if (getSize() > 0) {
-            setSize(getSize() - amount);
+        if (amount > 0) {
+            if (getSize() > 0 && getSize() >= amount) {
+                setSize(getSize() - amount);
+            } else {
+                setSize(0);
+            }
         }
     }
 
