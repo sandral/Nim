@@ -19,11 +19,15 @@ Käytetty aika: 3-4h
 Ohjelma tuli ihan hyvään vaiheeseen, sitä pystyi jo pelaamaan. Erikoistapaukset, esimerkiksi se, että yrittää ottaa kasasta enemmän tikkuja kuin mitä siinä on, eivät vielä käsitelty.
 Käytetty aika: 3h
 
-####Perjantai 16.6 & lauantai 17.6 & sunnuntai 18.6.
+####Perjantai 16.5 & lauantai 17.5 & sunnuntai 18.5.
 Käytetty aika: 0h
 
-####Maanantai 19.6.
+####Maanantai 19.5.
 Käsittelin kaikki erikoistapaukset, kasasta on pakko ottaa vähintään yksi tikku, mutta ei voi ottaa enempää tikkuja kuin mitä siinä on. Toisaalta tyhjästä kasasta ei voi ottaa tikkuja. Myöskään ei voi yrittää ottaa sellaisesta kasasta jonka indeksi on suurempi kuin mitä kasoja on.
 Aloitin testausta, mutta on kovin vaikea keksiä, mitä testaisin ja millä tavalla. 
 Käytetty aika 3-4h
+
+
+####Tiistai 20.5.
+Päätin muuttaa ohjelman rakennetta hieman ja luoda sinne Stack-luokan joka kuvaa yhtä tikkukasaa. Tämä siksi, että ohjelmaan tulisi lisää rakennetta -> helpompi tehdä testejä. Tein tällaisen luokan jo aivan aluksi, mutta ajattelin, että se on kärpäsen ampumista tykillä, mutta eilen huomasin, että sellaisenaan ohjelmalle on aika hankala keksiä testejä.
 
