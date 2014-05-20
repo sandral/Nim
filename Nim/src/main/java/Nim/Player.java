@@ -18,7 +18,7 @@ public class Player {
         return name;
     }
     public void increaseScore() {
-        score = score + 1;
+        setScore(getScore() + 1);
     }
     
     public void setScore(int score) {
@@ -28,5 +28,12 @@ public class Player {
     public int getScore() {
         return score;
     }
+
+    @Override
+    public String toString() {
+        return "pelaajan nimi: " + name + ", pisteet: " + score;
+    }
+    
+    
 
 }
