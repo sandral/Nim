@@ -10,14 +10,18 @@ public class NimGame {
     int round;
     Player p1;
     Player p2;
+    Player currentPlayer;
     boolean p1Wins;
     boolean p2Wins;
     Stack[] stacks;
     boolean gameEnded;
+    boolean turnEnded;
+    boolean roundEnded;
 
     public NimGame(Player p1, Player p2) {
         this.p1 = p1;
         this.p2 = p2;
+        currentPlayer = new Player("player");
         round = 0;
         p1Wins = false;
         p2Wins = false;
@@ -39,10 +43,19 @@ public class NimGame {
         return round;
     }
 
-    public boolean ended() {
+    public boolean gameEnded() {
         return gameEnded;
     }
-
+    
+    public boolean roundEnded() {
+        return roundEnded;
+    }
+    
+    public boolean turnEnded() {
+        return turnEnded();
+    }
+    
+    
     public boolean player1isWinner() {
         return p1Wins;
     }
@@ -52,11 +65,7 @@ public class NimGame {
     }
 
     public Player currentPlayer() {
-        if (round % 2 == 0) {
-            return p1;
-        } else {
-            return p2;
-        }
+        return currentPlayer;
     }
 
     public int chooseStack(Player p, int index) {
@@ -73,8 +82,10 @@ public class NimGame {
 
     public void removeSticks(Player p, int amount, int index) {
         if (amount > 0 && stacks[index - 1].getSize() >= amount) {
-            stacks[index - 1].decrease(amount);
+            stacks[index - 1].decrease();
         }
 
     }
+    
+    
 }
