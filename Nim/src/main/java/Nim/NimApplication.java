@@ -12,6 +12,8 @@ public class NimApplication {
     int gameLength;
     NimGame game;
     boolean gameOn;
+    boolean turnEnded;
+    boolean roundEnded;
     
 
     public NimApplication() {
@@ -19,7 +21,11 @@ public class NimApplication {
         gameOn = true;
         game = null;
     }
-        
+    
+    public void makeMove() {
+        while (!turnEnded) {
+        }
+    }
     
     
 }
