@@ -68,13 +68,4 @@ public class NimText {
     private static void showScores() {
     }
 
-    public void lassyti() {
-
-        System.out.println("Pelaaja 1, anna nimesi: ");
-        String n1 = scanner.nextLine();
-        System.out.println("Pelaaja 2, anna nimesi: ");
-        String n2 = scanner.nextLine();
-        System.out.println("Peli alkaa!");
-
-    }
 }
