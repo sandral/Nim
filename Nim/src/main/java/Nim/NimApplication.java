@@ -9,22 +9,22 @@ package Nim;
  * @author sandra
  */
 public class NimApplication {
-
-    int gameLength;
-    NimGame game;
-    boolean turnEnded;
+    NimGame currentGame;
+    Scores scorelist;
+    Player p1;
+    Player p2;
     
     public NimApplication() {
-        gameLength = 3;
-        game = null;
-        turnEnded = false;
+        currentGame = null;
+        p1 = null;
+        p2 = null;
+        scorelist = Scores.initScorelist();
     }
-    
-    public void makeMove(int n) {
-        game.chooseStack(n);
-        while (!turnEnded) {
-            game.removeStick(n);
-        }
-        
+
+    public void startGame(String sp1, String sp2) {
+        p1 = scorelist.getPlayer(sp1);
+        p2 = scorelist.getPlayer(sp2);
+        currentGame = new NimGame();
     }
+
 }
