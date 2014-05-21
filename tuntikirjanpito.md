@@ -30,4 +30,9 @@ Käytetty aika 3-4h
 
 ####Tiistai 20.5.
 Päätin muuttaa ohjelman rakennetta hieman ja luoda sinne Stack-luokan joka kuvaa yhtä tikkukasaa. Tämä siksi, että ohjelmaan tulisi lisää rakennetta -> helpompi tehdä testejä. Tein tällaisen luokan jo aivan aluksi, mutta ajattelin, että se on kärpäsen ampumista tykillä, mutta eilen huomasin, että sellaisenaan ohjelmalle on aika hankala keksiä testejä.
+Tein muutamia testejä sekä Stack- että Player-luokalle. 
+Käytetty aika 3-4h
+
+####Keskiviikko 21.5.
+Minulla on suuria vaikeuksia päättää, millainen rakenne ohjelmalla pitäisi olla...
 
