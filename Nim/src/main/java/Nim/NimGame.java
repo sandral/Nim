@@ -64,11 +64,10 @@ public class NimGame {
         return index;
     }
 
-    public void removeSticks(int amount, int index) {
-        if (amount > 0 && stacks[index - 1].getSize() >= amount) {
+    public void removeStick(int index) {
+        if (!stacks[index].isEmpty()) {
             stacks[index - 1].decrease();
         }
-
     }
     
     

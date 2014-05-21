@@ -9,23 +9,22 @@ package Nim;
  * @author sandra
  */
 public class NimApplication {
+
     int gameLength;
     NimGame game;
-    boolean gameOn;
     boolean turnEnded;
-    boolean roundEnded;
     
-
     public NimApplication() {
         gameLength = 3;
-        gameOn = true;
         game = null;
+        turnEnded = false;
     }
     
-    public void makeMove() {
+    public void makeMove(int n) {
+        game.chooseStack(n);
         while (!turnEnded) {
+            game.removeStick(n);
         }
+        
     }
-    
-    
 }
