@@ -12,14 +12,14 @@ public class NimApplication {
     int gameLength;
     NimGame game;
     boolean gameOn;
+    
 
     public NimApplication() {
         gameLength = 3;
         gameOn = true;
         game = null;
     }
-    
-    
+        
     
     
 }

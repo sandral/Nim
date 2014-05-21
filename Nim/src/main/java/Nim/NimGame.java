@@ -54,8 +54,7 @@ public class NimGame {
     public boolean turnEnded() {
         return turnEnded();
     }
-    
-    
+        
     public boolean player1isWinner() {
         return p1Wins;
     }

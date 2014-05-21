@@ -10,8 +10,7 @@ public class Player {
     String name;
     int score;
     
-    public Player(String name) {
-        this.name = name;
+    public Player() {
         this.score = 0;
     }
 
@@ -24,6 +23,10 @@ public class Player {
     
        public int getScore() {
         return score;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
