@@ -40,12 +40,12 @@
                 <version>0.30</version>
                 <configuration>
                     <targetClasses>
-                        <param>*</param>
-                        <param>*</param>
+                        <param>Nim.*</param>
+                        <param>Nim.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>*</param>
-                        <param>*</param>
+                        <param>Nim.*</param>
+                        <param>Nim.*</param>
                     </targetTests>
                 </configuration>
             </plugin>
