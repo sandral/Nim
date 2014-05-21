@@ -63,7 +63,7 @@ public class TestStack {
     @Test
     public void testDecrease() {
         for (int i = 0; i < 17; i++) {
-            stack2.decrease(1);
+            stack2.decrease();
             assertEquals(16 - i, stack2.getSize());
         }
     }
@@ -71,18 +71,19 @@ public class TestStack {
     @Test
     public void testIsEmpty() {
         for (int i = 0; i < 17; i++) {
-            stack2.decrease(1);
+            stack2.decrease();
         }
         assertTrue(stack2.isEmpty());
     }
-   
-    
+
     @Test
     public void testDecrease2() {
-            stack3.decrease(3);
-            assertTrue(stack3.isEmpty());
+        for (int i = 0; i < 3; i++) {
+            stack3.decrease();
         }
-    
+        assertTrue(stack3.isEmpty());
+    }
+
     @Test
     public void testDecreaseRandom() {
         Random random = new Random();
@@ -90,13 +91,16 @@ public class TestStack {
             int r1 = random.nextInt(10);
             int r2 = random.nextInt(10);
             int r3 = 0;
-            if (r1-r2 > 0) {
-                r3 = r1-r2;
+            if (r1 >= r2) {
+                r3 = r1 - r2;
             }
             Stack s = new Stack(r1);
-            s.decrease(r2);
-            assertEquals(r3, s.getSize());            
+            for (int j = 0; j < r2; j++) {
+                if (!s.isEmpty()) {
+                    s.decrease();
+                }
+            }
+            assertEquals(r3, s.getSize());
         }
     }
-    
 }

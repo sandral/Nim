@@ -26,15 +26,11 @@ public class Stack {
         return s;
     }
 
-    public void decrease(int amount) {
-        if (amount > 0) {
-            if (getSize() > 0 && getSize() >= amount) {
-                setSize(getSize() - amount);
-            } else {
-                setSize(0);
-            }
+    public void decrease() {
+        if (!isEmpty()) {
+            setSize(getSize() - 1);
         }
-    }
+     }
 
     public boolean isEmpty() {
         return getSize() == 0;

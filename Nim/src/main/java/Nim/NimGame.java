@@ -14,7 +14,7 @@ public class NimGame {
     boolean p2Wins;
     Stack[] stacks;
     boolean gameEnded;
-    
+
     public NimGame(Player p1, Player p2) {
         this.p1 = p1;
         this.p2 = p2;
@@ -24,7 +24,7 @@ public class NimGame {
         stacks = new Stack[round + 2];
         gameEnded = false;
     }
-    
+
     public Stack[] createStacks(int n) {
         Random random = new Random();
         for (int i = 0; i < n + 1; i++) {
@@ -34,26 +34,23 @@ public class NimGame {
         }
         return stacks;
     }
-    
+
     public int round() {
         return round;
     }
-    
-    
-    
+
     public boolean ended() {
         return gameEnded;
     }
-    
+
     public boolean player1isWinner() {
         return p1Wins;
     }
-    
+
     public boolean player2isWinner() {
         return p2Wins;
     }
-    
-    
+
     public Player currentPlayer() {
         if (round % 2 == 0) {
             return p1;
@@ -61,7 +58,7 @@ public class NimGame {
             return p2;
         }
     }
-    
+
     public int chooseStack(Player p, int index) {
         if (index <= 0) {
             return -1;
@@ -80,5 +77,4 @@ public class NimGame {
         }
 
     }
-
 }
