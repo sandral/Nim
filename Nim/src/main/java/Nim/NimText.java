@@ -56,18 +56,42 @@ public class NimText {
         }
         while (p2.trim().equals("")) {
             System.out.println("Anna pelaajan 2 nimi:");
-            p1 = scanner.nextLine();
-            if (p1.trim().equals("")) {
+            p2 = scanner.nextLine();
+            if (p2.trim().equals("")) {
                 System.out.println("Nimi ei voi olla tyhjä");
             }
         }
 
         application.startGame(p1, p2);
         System.out.println("Peli alkaa!");
+        System.out.println("");
+
+        
+        while (application.gameStarted()) {
+            int[] ss = application.stackSizes();
+            for (int i = 0; i < ss.length; i++) {
+                for (int j = 0; j < 10; j++) {
+                    System.out.print("|");
+                }
+                System.out.println("");
+            }
+            System.out.println();
+            
+            System.out.println("Pelaaja " + application.currentPlayerName() + ", haista kakka.");
+
+            int index = Integer.parseInt(scanner.nextLine());
+            int amount = Integer.parseInt(scanner.nextLine());
+            if (!application.makeMove(index-1,amount)) {
+                System.out.println("Laiton siirto!");
+            }
+        }
+        
+        if (application.getLastWinner() == 1) {
+            
+        }
         
     }
 
     private static void showScores() {
     }
-
 }

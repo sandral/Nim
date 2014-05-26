@@ -20,13 +20,14 @@ public class NimGame {
      */
     public NimGame() {
         turn = 1;
-        winner = 1;
+        winner = 0;
         stacks = new Stack[5];
     }
 
     /**
-     * Luo taulukon, joka sisältää pelilaudalla olevat tikkukasat. 
-     * Kasojen sisältämien tikkujen määrät luodaan satunnaisesti.
+     * Luo taulukon, joka sisältää pelilaudalla olevat tikkukasat. Kasojen
+     * sisältämien tikkujen määrät luodaan satunnaisesti.
+     *
      * @return Taulukko, joka sisältää Stack-olioita.
      */
     public Stack[] createStacks() {
@@ -40,7 +41,9 @@ public class NimGame {
     }
 
     /**
-     * Palauttaa taulukon, joka sisältää pelilaudalla parhaillaan olevat tikkukasat.
+     * Palauttaa taulukon, joka sisältää pelilaudalla parhaillaan olevat
+     * tikkukasat.
+     *
      * @return Taulukko, joka sisältää kasat.
      */
     public Stack[] getStacks() {
@@ -49,6 +52,7 @@ public class NimGame {
 
     /**
      * Metodi, joka poistaa halutusta tikkukasasta halutun määrän tikkuja.
+     *
      * @param index Se tikkukasa, josta tikkuja halutaan poistaa.
      * @param number Poistettavien tikkujen määrä.
      */
@@ -59,5 +63,13 @@ public class NimGame {
             }
         }
         turn = 3 - turn;
+    }
+
+    public int getTurn() {
+        return turn;
+    }
+
+    boolean ended() {
+        return winner != 0;
     }
 }
