@@ -13,11 +13,10 @@ public class NimGame {
 
     public NimGame() {
         turn = 1;
-        winner = 1;        
+        winner = 1;
         stacks = new Stack[5];
     }
-    
-    
+
     public Stack[] createStacks() {
         Random random = new Random();
         for (int i = 0; i < 5; i++) {
@@ -28,14 +27,15 @@ public class NimGame {
         return stacks;
     }
 
-
     public Stack[] getStacks() {
         return stacks;
     }
 
     public void removeSticks(int index, int number) {
         if (number > 0 && number <= stacks[index].getSize() && !stacks[index].isEmpty()) {
-            stacks[index - 1].decrease();
+            for (int i = 0; i < number; i++) {
+                stacks[index].decrease();
+            }
         }
         turn = 3 - turn;
     }
