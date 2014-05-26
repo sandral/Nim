@@ -63,6 +63,8 @@ public class NimText {
         }
 
         application.startGame(p1, p2);
+        System.out.println("Peli alkaa!");
+        
     }
 
     private static void showScores() {
