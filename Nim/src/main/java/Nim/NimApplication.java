@@ -93,4 +93,15 @@ public class NimApplication {
             return 1;
         }
     }
+    
+    void increaseWinnerScore() {
+        if (currentGame.ended()) {
+            if (currentPlayerName().equals(p1.getName())) {
+                p2.increaseScore();
+            }
+            else {
+                p1.increaseScore();
+            }
+        }
+    }
 }

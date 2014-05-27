@@ -69,8 +69,12 @@ public class NimGame {
     public int getTurn() {
         return turn;
     }
+    
 
     boolean ended() {
         return winner != 0;
     }
+    
 }
+
+

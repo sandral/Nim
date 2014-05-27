@@ -9,6 +9,7 @@ public class Player {
     
     String name;
     int score;
+    
 
     public Player(String sp) {
         score = 0;
