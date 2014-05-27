@@ -87,10 +87,10 @@ public class NimApplication {
     }
 
     int getLastWinner() {
-        if (p1.getScore() > p2.getScore()) {
-            return 1;
-        } else {
+        if (currentPlayerName().equals(p1.getName())) {
             return 2;
+        } else {
+            return 1;
         }
     }
 }
