@@ -22,6 +22,7 @@ public class NimGame {
         turn = 1;
         winner = 0;
         stacks = new Stack[5];
+        createStacks();
     }
 
     /**

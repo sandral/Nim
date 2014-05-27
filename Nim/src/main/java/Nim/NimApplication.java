@@ -36,6 +36,16 @@ public class NimApplication {
         return sizes;
     }
 
+    public boolean stacksAreEmpty() {
+        boolean ret = true;
+        for (int i = 0; i < currentGame.getStacks().length; i++) {
+            if (currentGame.getStacks()[i].getSize() != 0) {
+                ret = false;
+            }
+        }
+        return ret;
+    }
+
     public String currentPlayerName() {
         if (currentGame.getTurn() == 1) {
             return p1.getName();
@@ -45,10 +55,18 @@ public class NimApplication {
     }
 
     boolean legalMove(int i, int amount) {
-        if (i<0) { return false; }
-        if (i>=currentGame.getStacks().length) { return false; }
-        if (amount < 1) { return false;}
-        if (amount > currentGame.getStacks()[i].getSize()) { return false; }
+        if (i < 0) {
+            return false;
+        }
+        if (i >= currentGame.getStacks().length) {
+            return false;
+        }
+        if (amount < 1) {
+            return false;
+        }
+        if (amount > currentGame.getStacks()[i].getSize()) {
+            return false;
+        }
         return true;
     }
 
@@ -69,6 +87,10 @@ public class NimApplication {
     }
 
     int getLastWinner() {
-       
+        if (p1.getScore() > p2.getScore()) {
+            return 1;
+        } else {
+            return 2;
+        }
     }
 }

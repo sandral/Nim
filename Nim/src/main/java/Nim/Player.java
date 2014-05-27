@@ -9,9 +9,10 @@ public class Player {
     
     String name;
     int score;
-    
-    public Player() {
-        this.score = 0;
+
+    public Player(String sp) {
+        score = 0;
+        name = sp;
     }
 
     public String getName() {

@@ -11,11 +11,13 @@ package Nim;
 public class Scores {
 
     static Scores initScorelist() {
-        throw new UnsupportedOperationException("Not yet implemented");
+        return new Scores();
+        //throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    Player getPlayer(String sp1) {
-        throw new UnsupportedOperationException("Not yet implemented");
+    Player getPlayer(String sp) {
+        return new Player(sp);
+        //throw new UnsupportedOperationException("Not yet implemented");
     }
     
 }

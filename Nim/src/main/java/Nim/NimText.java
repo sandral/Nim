@@ -66,30 +66,34 @@ public class NimText {
         System.out.println("Peli alkaa!");
         System.out.println("");
 
-        
+
         while (application.gameStarted()) {
             int[] ss = application.stackSizes();
             for (int i = 0; i < ss.length; i++) {
-                for (int j = 0; j < 10; j++) {
+                for (int j = 0; j < ss[i]; j++) {
                     System.out.print("|");
                 }
                 System.out.println("");
             }
             System.out.println();
-            
-            System.out.println("Pelaaja " + application.currentPlayerName() + ", haista kakka.");
-
+            if (application.stacksAreEmpty()) {
+                break;
+            }
+            System.out.println("Pelaaja " + application.currentPlayerName() + ", mistä kasasta haluat poistaa tikkuja?");
             int index = Integer.parseInt(scanner.nextLine());
+            System.out.println("Kuinka monta tikkua haluat poistaa?");
             int amount = Integer.parseInt(scanner.nextLine());
-            if (!application.makeMove(index-1,amount)) {
+
+            if (!application.makeMove(index - 1, amount)) {
                 System.out.println("Laiton siirto!");
             }
         }
-        
+
         if (application.getLastWinner() == 1) {
-            
+            System.out.println("Voittaja on " + p1);
+        } else {
+            System.out.println("Voittaja on " + p2);
         }
-        
     }
 
     private static void showScores() {
