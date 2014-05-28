@@ -12,7 +12,6 @@ public class NimGame {
 
     Scanner scanner = new Scanner(System.in);
     int turn;
-    int winner;
     Stack[] stacks;
 
     /**
@@ -20,7 +19,6 @@ public class NimGame {
      */
     public NimGame() {
         turn = 1;
-        winner = 0;
         stacks = new Stack[5];
         createStacks();
     }
@@ -31,14 +29,13 @@ public class NimGame {
      *
      * @return Taulukko, joka sisältää Stack-olioita.
      */
-    public Stack[] createStacks() {
+    public void createStacks() {
         Random random = new Random();
         for (int i = 0; i < 5; i++) {
             int r = random.nextInt(10) + 1;
             Stack s = new Stack(r);
             stacks[i] = s;
         }
-        return stacks;
     }
 
     /**
@@ -63,18 +60,26 @@ public class NimGame {
                 stacks[index].decrease();
             }
         }
-        turn = 3 - turn;
+        if (!ended()) {
+            turn = 3 - turn;
+        }
     }
 
     public int getTurn() {
         return turn;
     }
-    
 
     boolean ended() {
-        return winner != 0;
+        return stacksAreEmpty();
     }
-    
+
+    private boolean stacksAreEmpty() {
+        boolean ret = true;
+        for (int i = 0; i < stacks.length; i++) {
+            if (stacks[i].getSize() > 0) {
+                ret = false;
+            }
+        }
+        return ret;
+    }
 }
-
-

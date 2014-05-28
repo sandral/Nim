@@ -14,12 +14,14 @@ public class NimApplication {
     Scores scorelist;
     Player p1;
     Player p2;
+    String winner;
 
     public NimApplication() {
         currentGame = null;
         p1 = null;
         p2 = null;
         scorelist = Scores.initScorelist();
+        winner = "";
     }
 
     public void startGame(String sp1, String sp2) {
@@ -36,16 +38,7 @@ public class NimApplication {
         return sizes;
     }
 
-    public boolean stacksAreEmpty() {
-        boolean ret = true;
-        for (int i = 0; i < currentGame.getStacks().length; i++) {
-            if (currentGame.getStacks()[i].getSize() != 0) {
-                ret = false;
-            }
-        }
-        return ret;
-    }
-
+    
     public String currentPlayerName() {
         if (currentGame.getTurn() == 1) {
             return p1.getName();
@@ -74,6 +67,7 @@ public class NimApplication {
         if (legalMove(i, amount)) {
             currentGame.removeSticks(i, amount);
             if (currentGame.ended()) {
+                winner = currentPlayerName();
                 currentGame = null;
             }
             return true;
@@ -86,12 +80,8 @@ public class NimApplication {
         return currentGame != null;
     }
 
-    int getLastWinner() {
-        if (currentPlayerName().equals(p1.getName())) {
-            return 2;
-        } else {
-            return 1;
-        }
+    String getLastWinner() {
+        return winner;
     }
     
     void increaseWinnerScore() {
@@ -104,4 +94,5 @@ public class NimApplication {
             }
         }
     }
+    
 }

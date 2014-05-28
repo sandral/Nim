@@ -76,7 +76,7 @@ public class NimText {
                 System.out.println("");
             }
             System.out.println();
-            if (application.stacksAreEmpty()) {
+            if (application.currentGame.ended()) {
                 break;
             }
             System.out.println("Pelaaja " + application.currentPlayerName() + ", mistä kasasta haluat poistaa tikkuja?");
@@ -89,11 +89,12 @@ public class NimText {
             }
         }
 
-        if (application.getLastWinner() == 1) {
+        if (application.getLastWinner().equals(p1)) {
             System.out.println("Voittaja on " + p1);
         } else {
             System.out.println("Voittaja on " + p2);
         }
+
     }
 
     private static void showScores() {
