@@ -37,3 +37,14 @@ Käytetty aika 3-4h
 Minulla on suuria vaikeuksia päättää, millainen rakenne ohjelmalla pitäisi olla...
 Suunnittelin ja muokkasin ohjelman rakennetta ja piirsin luokkakaavion.
 Käytetty aika 3-4h
+
+####Torstai-Sunnuntai
+En tehnyt mitään
+
+####Maanantai 26.5.
+Tein tekstikäyttöliittymää
+Käytetty aika n. 1h
+
+####Tiistai 27.5.
+Tein tekstikäyttöliittymää
+Käytetty aika n. 2h
