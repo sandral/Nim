@@ -29,6 +29,11 @@ public class NimApplication {
         p2 = scorelist.getPlayer(sp2);
         currentGame = new NimGame();
     }
+    
+    
+    boolean gameStarted() {
+        return currentGame != null;
+    }
 
     public int[] stackSizes() {
         int[] sizes = new int[currentGame.getStacks().length];
@@ -76,9 +81,6 @@ public class NimApplication {
         }
     }
 
-    boolean gameStarted() {
-        return currentGame != null;
-    }
 
     String getLastWinner() {
         return winner;

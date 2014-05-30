@@ -18,15 +18,11 @@ import static org.junit.Assert.*;
  */
 public class NimGameTest {
 
-    static NimGame nim;
-
     public NimGameTest() {
     }
 
     @BeforeClass
     public static void setUpClass() {
-        nim = new NimGame();
-
     }
 
     @AfterClass
@@ -43,43 +39,61 @@ public class NimGameTest {
 
     @Test
     public void testCreateStacks() {
-        Stack[] s = nim.createStacks();
+        NimGame nim = new NimGame();
+        nim.createStacks();
+        Stack[] s = nim.getStacks();
         assertEquals(5, s.length);
     }
 
     @Test
     public void stacksAreNotEmpty() {
-        Stack[] s = nim.createStacks();
-        for (int i = 0; i < 5; i++) {
-            assertFalse(s[i].isEmpty());
-        }
+        NimGame nim = new NimGame();
+        nim.createStacks();
+        Stack[] s = nim.getStacks();
+        assertFalse(nim.stacksAreEmpty());
+        assertFalse(nim.ended());
     }
 
     @Test
     public void testRemoveOne() {
-        Stack[] s = nim.createStacks();
+        NimGame nim = new NimGame();
+        nim.createStacks();
+        Stack[] s = nim.getStacks();
         int size = s[0].getSize();
         nim.removeSticks(0, 1);
         assertEquals(size - 1, s[0].getSize());
+        assertFalse(nim.stacksAreEmpty());
+        assertFalse(nim.ended());
+        assertEquals(2, nim.getTurn());
     }
 
     @Test
     public void testRemoveAll() {
-        Stack[] s = nim.createStacks();
+        NimGame nim = new NimGame();
+        nim.createStacks();
+        Stack[] s = nim.getStacks();
         for (int i = 0; i < 5; i++) {
             int size = s[i].getSize();
-            System.out.println(size);
+            System.out.println("i: " + i);
+            System.out.println("turn before move: " + nim.getTurn());
             nim.removeSticks(i, size);
-            System.out.println(s[i].getSize());
-            assertTrue(s[i].isEmpty());
+            System.out.println("size: " + s[i].getSize());
+            System.out.println("turn after move: " + nim.getTurn());
+            if (i % 2 == 0 && !nim.ended()) {
+                assertEquals(2, nim.getTurn());
+            } else if (i % 2 != 0 && nim.ended()) {
+                assertEquals(1, nim.getTurn());
+            }
         }
-        System.out.println("");
-        System.out.println("");
+        assertTrue(nim.stacksAreEmpty());
+        assertTrue(nim.ended());
     }
 
     @Test
     public void testRemoveRandom() {
-        Stack[] s = nim.createStacks();
+        NimGame nim = new NimGame();
+        nim.createStacks();
+        Stack[] s = nim.getStacks();
         Random random = new Random();
         int size = s[0].getSize();
         int r = random.nextInt(size) + 1;
@@ -90,7 +104,9 @@ public class NimGameTest {
 
     @Test
     public void testRemoveRandom2() {
-        Stack[] s = nim.createStacks();
+        NimGame nim = new NimGame();
+        nim.createStacks();
+        Stack[] s = nim.getStacks();
         Random random = new Random();
         for (int i = 0; i < 5; i++) {
             int size = s[i].getSize();

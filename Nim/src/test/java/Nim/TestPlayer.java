@@ -30,8 +30,8 @@ public class TestPlayer {
     public static void setUpClass() {
         random = new Random();
         s = "abcdefghijklmnopqrstuvxyzåäö";
-        p1 = new Player();
-        p2 = new Player();
+        p1 = new Player("p");
+        p2 = new Player("p");
     }
 
     @AfterClass
@@ -73,7 +73,7 @@ public class TestPlayer {
     @Test
     public void testIncreaseScoreRandom() {
         for (int i = 0; i < 5; i++) {
-            Player p = new Player();
+            Player p = new Player("p");
             int r = random.nextInt(10);
             for (int j = 0; j < r; j++) {
                 p.increaseScore();

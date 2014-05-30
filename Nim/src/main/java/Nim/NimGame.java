@@ -26,8 +26,6 @@ public class NimGame {
     /**
      * Luo taulukon, joka sisältää pelilaudalla olevat tikkukasat. Kasojen
      * sisältämien tikkujen määrät luodaan satunnaisesti.
-     *
-     * @return Taulukko, joka sisältää Stack-olioita.
      */
     public void createStacks() {
         Random random = new Random();
@@ -73,7 +71,7 @@ public class NimGame {
         return stacksAreEmpty();
     }
 
-    private boolean stacksAreEmpty() {
+    public boolean stacksAreEmpty() {
         boolean ret = true;
         for (int i = 0; i < stacks.length; i++) {
             if (stacks[i].getSize() > 0) {
