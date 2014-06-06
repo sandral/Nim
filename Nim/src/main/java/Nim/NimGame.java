@@ -67,10 +67,19 @@ public class NimGame {
         return turn;
     }
 
+    /**
+     * Palauttaa totuusarvon true, jos peli päättyi ja kasat
+     * ovat tyhjiä.
+     * @return totuusarvo, onko peli päättynyt.
+     */
     boolean ended() {
         return stacksAreEmpty();
     }
 
+    /**
+     * Palauttaa totuusarvon true, jos kaikki kasat ovat tyhjiä
+     * @return Totuusarvo, ovatko kasat tyhjiä.
+     */
     public boolean stacksAreEmpty() {
         boolean ret = true;
         for (int i = 0; i < stacks.length; i++) {

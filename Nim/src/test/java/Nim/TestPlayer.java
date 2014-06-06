@@ -46,17 +46,7 @@ public class TestPlayer {
     public void tearDown() {
     }
 
-    @Test
-    public void testGetName() {
-        for (int i = 0; i < 10; i++) {
-            int r = random.nextInt(27);
-            char c = s.charAt(r);
-            String name = "" + c;
-            p1.setName(name);
-            assertEquals(name, p1.getName());
-        }
-    }
-    
+        
     @Test
     public void scoreOnAlussaNolla() {
         assertEquals(0, p2.getScore());
