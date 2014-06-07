@@ -114,7 +114,7 @@ public class NimApplication {
             currentGame.removeSticks(i, amount);
             if (currentGame.ended()) {
                 winner = currentPlayerName();
-                currentGame = null;
+                //currentGame = null;
             }
             return true;
         } else {
@@ -142,5 +142,9 @@ public class NimApplication {
                 p1.increaseScore();
             }
         }
+    }
+
+    boolean gameEnded() {
+        return currentGame.ended();
     }
 }
