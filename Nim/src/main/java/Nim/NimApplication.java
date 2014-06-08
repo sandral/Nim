@@ -144,6 +144,10 @@ public class NimApplication {
         }
     }
 
+    /**
+     * Palauttaa totuusarvon true, jos peli päättyi.
+     * @return totuusarvo, onko peli päättynyt.
+     */
     boolean gameEnded() {
         return currentGame.ended();
     }

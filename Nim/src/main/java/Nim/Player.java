@@ -15,7 +15,7 @@ public class Player {
     
 /**
  * Konstruktori
- * @param Pelaajan nimi
+ * @param sp 
  */
     public Player(String sp) {
         score = 0;

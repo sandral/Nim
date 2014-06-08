@@ -7,10 +7,14 @@ package Nim;
 
 import java.util.Scanner;
 
+/**
+ * Tekstikäyttöliittymä -luokka
+ */
 public class NimText {
 
     static Scanner scanner;
     static NimApplication application;
+
 
     public static void main(String[] args) {
         application = new NimApplication();
@@ -42,6 +46,9 @@ public class NimText {
         }
     }
 
+    /**
+     * Metodi, joka hallinnoi pelin pelaamista.
+     */
     private static void playGame() {
         String p1, p2;
 
@@ -97,6 +104,9 @@ public class NimText {
 
     }
 
+    /**
+     * Metodi, joka näyttää pelaajien pistesaldon.
+     */
     private static void showScores() {
     }
 }

@@ -63,6 +63,10 @@ public class NimGame {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTurn() {
         return turn;
     }
