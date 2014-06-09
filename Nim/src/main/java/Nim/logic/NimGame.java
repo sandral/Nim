@@ -1,4 +1,4 @@
-package Nim;
+package Nim.logic;
 
 import java.util.Iterator;
 import java.util.Random;
@@ -76,7 +76,7 @@ public class NimGame {
      * ovat tyhjiä.
      * @return totuusarvo, onko peli päättynyt.
      */
-    boolean ended() {
+    public boolean ended() {
         return stacksAreEmpty();
     }
 

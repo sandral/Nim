@@ -2,18 +2,18 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Nim;
+package Nim.logic;
 
 /**
  * Sovelluslogiikka luokka.
  */
 public class NimApplication {
 
-    NimGame currentGame;
+    public NimGame currentGame;
     Scores scorelist;
-    Player p1;
-    Player p2;
-    String winner;
+    public Player p1;
+    public Player p2;
+    public String winner;
 
     /**
      * Konstruktori.
@@ -44,7 +44,7 @@ public class NimApplication {
      *
      * @return totuusarvo, onko peli meneillään
      */
-    boolean gameStarted() {
+    public boolean gameStarted() {
         return currentGame != null;
     }
 
@@ -85,7 +85,7 @@ public class NimApplication {
      * @param amount Poistettavien tikkujen määrä.
      * @return Totuusarvo, onko tehtävä poisto mahdollinen.
      */
-    boolean legalMove(int i, int amount) {
+    public boolean legalMove(int i, int amount) {
         if (i < 0) {
             return false;
         }
@@ -109,7 +109,7 @@ public class NimApplication {
      * @param amount Poistettava määrä.
      * @return Totuusarvo, loppuiko peli siirron jälkeen.
      */
-    boolean makeMove(int i, int amount) {
+    public boolean makeMove(int i, int amount) {
         if (legalMove(i, amount)) {
             currentGame.removeSticks(i, amount);
             if (currentGame.ended()) {
@@ -126,7 +126,7 @@ public class NimApplication {
      * Palauttaa viimeksi pelatun pelin voittajan nimen.
      * @return Viimeksi voittaneen pelaajan nimi.
      */
-    String getLastWinner() {
+    public String getLastWinner() {
         return winner;
     }
 
@@ -134,7 +134,7 @@ public class NimApplication {
      * Kasvattaa pelin voittaneen pelaajan pistesaldoa pelin 
      * loputtua.
      */
-    void increaseWinnerScore() {
+    public void increaseWinnerScore() {
         if (currentGame.ended()) {
             if (currentPlayerName().equals(p1.getName())) {
                 p2.increaseScore();
@@ -148,7 +148,7 @@ public class NimApplication {
      * Palauttaa totuusarvon true, jos peli päättyi.
      * @return totuusarvo, onko peli päättynyt.
      */
-    boolean gameEnded() {
+    public boolean gameEnded() {
         return currentGame.ended();
     }
 }

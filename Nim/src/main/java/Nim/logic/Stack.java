@@ -1,4 +1,4 @@
-package Nim;
+package Nim.logic;
 
 /** 
  * Luokka jonka alkiot ovat kasaolioita, jotka sisältävät tiedon yhden tikkukasan 

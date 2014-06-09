@@ -4,6 +4,7 @@
  */
 package Nim;
 
+import Nim.logic.NimApplication;
 import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;

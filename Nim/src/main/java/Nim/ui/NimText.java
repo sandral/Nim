@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Nim;
+package Nim.ui;
 
+import Nim.logic.NimApplication;
 import java.util.Scanner;
 
 /**
@@ -83,7 +84,7 @@ public class NimText {
                 System.out.println("");
             }
             System.out.println();
-            if (application.currentGame.ended()) {
+            if (application.gameEnded()) {
                 break;
             }
             System.out.println("Pelaaja " + application.currentPlayerName() + ", mistä kasasta haluat poistaa tikkuja?");
