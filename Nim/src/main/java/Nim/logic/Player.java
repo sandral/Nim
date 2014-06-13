@@ -46,6 +46,11 @@ public class Player implements Comparable<Player> {
        public int getScore() {
         return score;
     }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+    
     
     @Override
     public String toString() {

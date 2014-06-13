@@ -4,6 +4,7 @@
  */
 package Nim;
 
+import Nim.logic.Player;
 import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -29,7 +30,6 @@ public class TestPlayer {
     @BeforeClass
     public static void setUpClass() {
         random = new Random();
-        s = "abcdefghijklmnopqrstuvxyzåäö";
         p1 = new Player("p");
         p2 = new Player("p");
     }

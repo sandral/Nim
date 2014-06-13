@@ -4,35 +4,43 @@
  */
 package Nim.logic;
 
+import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 /**
  *
  * @author reipas
  */
 public class Scores {
-    
-    private static ArrayList<Player> scores;
-    private static final String scoreFile = "tiedosto.txt";
+    private static Map<String, Integer> scoreList;
+    private static final String scoresFile = "tiedosto.txt";
 
     public Scores() {
+        scoreList = new TreeMap();
+    }
+    
+    static Scores initScorelist() {
+        return new Scores();
+    }
+    
+    
+    public void addScore(Player sp) {
+        scoreList.put(sp.name, sp.score);
+        }
+    
+    public String toString() {
+        String s = "";
+        for(Entry<String, Integer> entry: scoreList.entrySet()) {
+            String key = entry.getKey();
+            int value = entry.getValue();
+            s = key + " " + value + "\n" + s;
+        }
+        return s;
+    }
+    
+    
         
     }
-    
-
-    static Scores initScorelist() {
-       return new Scores();
-    }
-
-    
-    
-    Player getPlayer(String sp) {
-        return new Player(sp);
-        //throw new UnsupportedOperationException("Not yet implemented");
-    }
-    
-    public void addScore(String name, int score) {
-                
-    }
-    
-}
