@@ -17,7 +17,6 @@ public class NimText {
     static Scanner scanner;
     static NimApplication application;
 
-
     public static void main(String[] args) throws IOException {
         application = new NimApplication();
         scanner = new Scanner(System.in);
@@ -88,7 +87,8 @@ public class NimText {
             if (application.gameEnded()) {
                 break;
             }
-            System.out.println("Pelaaja " + application.currentPlayerName() + ", mistä kasasta haluat poistaa tikkuja?");
+            System.out.println("Pelaaja " + application.currentPlayerName()
+                    + ", mistä kasasta haluat poistaa tikkuja?");
             int index = Integer.parseInt(scanner.nextLine());
             System.out.println("Kuinka monta tikkua haluat poistaa?");
             int amount = Integer.parseInt(scanner.nextLine());
@@ -99,16 +99,21 @@ public class NimText {
         }
 
         if (application.getLastWinner().equals(p1)) {
+
             System.out.println("Voittaja on " + p1);
         } else {
             System.out.println("Voittaja on " + p2);
         }
-
+        application.increaseWinnerScore();
+        System.out.println("");
+        showScores();
+        
     }
 
     /**
      * Metodi, joka näyttää pelaajien pistesaldon.
      */
     private static void showScores() {
+        System.out.println("Pisteet: " +application.scores());
     }
 }

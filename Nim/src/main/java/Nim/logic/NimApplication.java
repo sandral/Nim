@@ -148,8 +148,10 @@ public class NimApplication {
         if (currentGame.ended()) {
             if (currentPlayerName().equals(p1.getName())) {
                 p2.increaseScore();
+                scorelist.addScore(p2);
             } else {
                 p1.increaseScore();
+                scorelist.addScore(p1);
             }
         }
     }
@@ -162,4 +164,8 @@ public class NimApplication {
     public boolean gameEnded() {
         return currentGame.ended();
     }
+    
+    public String scores() {
+    return scorelist.toString();
+}
 }
