@@ -10,7 +10,7 @@ package Nim.logic;
 /**
  * Luokka, joka kuvailee pelaaja-olion.
  */
-public class Player {
+public class Player implements Comparable<Player> {
     
     String name;
     int score;
@@ -49,7 +49,12 @@ public class Player {
     
     @Override
     public String toString() {
-        return "pelaajan nimi: " + name + ", pisteet: " + score;
+        return name + " " + score;
+    }
+
+    @Override
+    public int compareTo(Player other) {
+        return other.getScore() - this.score;
     }
     
     
