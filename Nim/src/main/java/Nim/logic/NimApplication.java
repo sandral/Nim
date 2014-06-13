@@ -4,6 +4,8 @@
  */
 package Nim.logic;
 
+import java.io.IOException;
+
 /**
  * Sovelluslogiikka luokka.
  */
@@ -33,9 +35,17 @@ public class NimApplication {
      * @param sp1 Pelaajan 1 nimi
      * @param sp2 Pelaajan 2 nimi
      */
-    public void startGame(String sp1, String sp2) {
-        p1 = scorelist.getPlayer(sp1);
-        p2 = scorelist.getPlayer(sp2);
+    public void startGame(String sp1, String sp2) throws IOException {
+        if (scorelist.isOnList(sp1)) {
+            p1 = scorelist.getPlayer(sp1);
+        } else {
+            p1 = new Player(sp1, 0);
+        }
+        if (scorelist.isOnList(sp2)) {
+            p2 = scorelist.getPlayer(sp2);
+        } else {
+            p2 = new Player(sp2, 0);
+        }
         currentGame = new NimGame();
     }
 
@@ -124,6 +134,7 @@ public class NimApplication {
 
     /**
      * Palauttaa viimeksi pelatun pelin voittajan nimen.
+     *
      * @return Viimeksi voittaneen pelaajan nimi.
      */
     public String getLastWinner() {
@@ -131,8 +142,7 @@ public class NimApplication {
     }
 
     /**
-     * Kasvattaa pelin voittaneen pelaajan pistesaldoa pelin 
-     * loputtua.
+     * Kasvattaa pelin voittaneen pelaajan pistesaldoa pelin loputtua.
      */
     public void increaseWinnerScore() {
         if (currentGame.ended()) {
@@ -146,6 +156,7 @@ public class NimApplication {
 
     /**
      * Palauttaa totuusarvon true, jos peli päättyi.
+     *
      * @return totuusarvo, onko peli päättynyt.
      */
     public boolean gameEnded() {

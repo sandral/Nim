@@ -6,6 +6,7 @@
 package Nim.ui;
 
 import Nim.logic.NimApplication;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -17,7 +18,7 @@ public class NimText {
     static NimApplication application;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         application = new NimApplication();
         scanner = new Scanner(System.in);
 
@@ -50,7 +51,7 @@ public class NimText {
     /**
      * Metodi, joka hallinnoi pelin pelaamista.
      */
-    private static void playGame() {
+    private static void playGame() throws IOException {
         String p1, p2;
 
         p1 = "";

@@ -19,8 +19,8 @@ public class Player implements Comparable<Player> {
  * Konstruktori
  * @param sp 
  */
-    public Player(String sp) {
-        score = 0;
+    public Player(String sp, int score) {
+        this.score = score;;
         name = sp;
     }
     
