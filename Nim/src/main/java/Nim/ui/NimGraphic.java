@@ -258,11 +258,11 @@ public class NimGraphic extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         String p1 = jTextField1.getText();
         String p2 = jTextField2.getText();
-        try {
+       
             application.startGame(p1, p2);
-        } catch (IOException ex) {
-            Logger.getLogger(NimGraphic.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
+          //  Logger.getLogger(NimGraphic.class.getName()).log(Level.SEVERE, null, ex);
+      
         state = -1;
         stateChosen = 0;
         updateStacks();

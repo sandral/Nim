@@ -6,7 +6,6 @@
 package Nim.ui;
 
 import Nim.logic.NimApplication;
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -17,7 +16,7 @@ public class NimText {
     static Scanner scanner;
     static NimApplication application;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         application = new NimApplication();
         scanner = new Scanner(System.in);
 
@@ -38,7 +37,7 @@ public class NimText {
             if (s.trim().toUpperCase().equals("A")) {
                 playGame();
             } else if (s.trim().toUpperCase().equals("P")) {
-                showScores();
+              //  showScores();
             } else if (s.trim().toUpperCase().equals("L")) {
                 System.exit(0);
             } else {
@@ -50,7 +49,7 @@ public class NimText {
     /**
      * Metodi, joka hallinnoi pelin pelaamista.
      */
-    private static void playGame() throws IOException {
+    private static void playGame() {
         String p1, p2;
 
         p1 = "";
@@ -99,21 +98,19 @@ public class NimText {
         }
 
         if (application.getLastWinner().equals(p1)) {
-
+            
             System.out.println("Voittaja on " + p1);
         } else {
             System.out.println("Voittaja on " + p2);
         }
-        application.increaseWinnerScore();
-        System.out.println("");
-        showScores();
-        
+                
     }
 
     /**
      * Metodi, joka näyttää pelaajien pistesaldon.
      */
+    /*
     private static void showScores() {
         System.out.println("Pisteet: " +application.scores());
-    }
+    }*/
 }

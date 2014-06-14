@@ -6,7 +6,9 @@ package Nim;
 
 import Nim.logic.Player;
 import Nim.logic.Scores;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Map.Entry;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,7 +23,7 @@ import static org.junit.Assert.*;
 public class TestScores {
 
     Scores s = new Scores();
-
+    
     public TestScores() {
     }
 
@@ -40,12 +42,14 @@ public class TestScores {
     @After
     public void tearDown() {
     }
+    
+    
 
     @Test
     public void testAddScore() {
         String aakkoset = "abcdefghijklmnopqrstuvxyz";
         for (int i = 0; i < 10; i++) {
-            Player p = new Player("" + aakkoset.charAt(i), 0);
+            Player p = new Player("" + aakkoset.charAt(i));
             p.setScore(i);
             s.addScore(p);
         }
@@ -57,23 +61,7 @@ public class TestScores {
 
     }
 
-    @Test
-    public void testGetPlayer() throws IOException {
-
-        String aakkoset = "abcdefghijklmnopqrstuvxyz";
-        for (int i = 0; i < 10; i++) {
-            Player p = new Player("" + aakkoset.charAt(i), 0);
-            p.setScore(i);
-            s.addScore(p);
-        }
-        s.saveToFile();
-        Player p1 = new Player("a", 0);
-        Player p = s.getPlayer("a");
-        assertEquals(p1, p);
-                }
     
-    @Test
-    public void testListIsEmpty() {
-        
-    }
+
+
 }
