@@ -113,7 +113,9 @@ public class NimText {
      * Metodi, joka näyttää pelaajien pistesaldon.
      */
     
-    private static void showScores() {
+    private static void showScores() throws FileNotFoundException, IOException {
+        application.getScorelist().readScoreList();
+        System.out.println("");
         System.out.println(application.getScorelist().toString());
     }
 }

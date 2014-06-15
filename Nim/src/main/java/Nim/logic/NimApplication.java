@@ -21,7 +21,7 @@ public class NimApplication {
     /**
      * Konstruktori.
      */
-    public NimApplication() {
+    public NimApplication() throws FileNotFoundException, IOException {
         currentGame = null;
         p1 = null;
         p2 = null;
@@ -152,7 +152,6 @@ public class NimApplication {
                 scorelist.addScore(p2);
             }
             scorelist.saveToFile();
-            System.out.println(scorelist.toString());
         }
     }
 

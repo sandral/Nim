@@ -1,7 +1,7 @@
 t
 9
 sulo
-3
+5
 s
 8
 r
@@ -21,6 +21,6 @@ l
 k
 0
 gaius
-1
+4
 Sulo
 1
