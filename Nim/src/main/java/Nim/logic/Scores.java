@@ -4,9 +4,13 @@
  */
 package Nim.logic;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.FilterReader;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,15 +19,30 @@ import java.util.TreeMap;
 public class Scores {
 
     private Map<String, Integer> scoreList;
-    private String scoreFile;
+    private String sf;
 
     public Scores() {
         scoreList = new TreeMap();
+        sf = "scores.txt";
     }
 
     static Scores initScorelist() {
         return new Scores();
 
+    }
+    
+    public Map<String, Integer> readScoreList() throws FileNotFoundException, IOException {
+        String line1 = "";
+        int line2 = 0;
+        File file = new File(sf);
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        line1 = br.readLine();
+        while (line1 != null) {
+            line2 = Integer.parseInt(br.readLine());
+            scoreList.put(line1, line2);
+            line1 = br.readLine(); 
+        }
+        return scoreList;
     }
 
     
@@ -48,7 +67,7 @@ public class Scores {
     public void saveToFile() {
         String s = this.toString();
         try {
-            File file = new File("scores.txt");
+            File file = new File(sf);
             BufferedWriter output = new BufferedWriter(new FileWriter(file));
             output.write(s);
             output.close();
