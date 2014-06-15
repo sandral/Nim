@@ -366,7 +366,7 @@ public class NimGraphic extends javax.swing.JFrame {
         pressButton(5);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws FileNotFoundException, IOException {
         application = new NimApplication();
         while (application.gameStarted()) {
             int[] ss = application.stackSizes();
