@@ -22,9 +22,10 @@ import org.omg.CORBA.portable.ApplicationException;
  */
 public class TestNimApplication {
 
-    NimApplication application = new NimApplication();
+    NimApplication application;
 
-    public TestNimApplication() {
+    public TestNimApplication() throws FileNotFoundException, IOException {
+        application = new NimApplication();
     }
 
     @BeforeClass
@@ -72,11 +73,11 @@ public class TestNimApplication {
         for (int i = 0; i < length; i++) {
             int size = application.stackSizes()[i];
             application.makeMove(i, 1);
-            assertEquals(size-1, application.stackSizes()[i]);
+            assertEquals(size - 1, application.stackSizes()[i]);
         }
         for (int i = 0; i < length; i++) {
             int size = application.stackSizes()[i];
-            int r = random.nextInt()+100;
+            int r = random.nextInt() + 100;
             application.makeMove(i, r);
             assertEquals(size, application.stackSizes()[i]);
         }
@@ -87,13 +88,13 @@ public class TestNimApplication {
         }
         for (int i = 0; i < length; i++) {
             int size = application.stackSizes().length;
-            int r = random.nextInt()-100;
+            int r = random.nextInt() - 100;
             application.makeMove(i, r);
             assertEquals(size, application.stackSizes().length);
         }
-        
-        
-        
+
+
+
     }
 
     @Test
@@ -136,6 +137,4 @@ public class TestNimApplication {
         application.makeMove(4, 10);
         assertEquals("p2", application.currentPlayerName());
     }
-   
-    
 }
