@@ -9,6 +9,7 @@ import Nim.logic.Scores;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -63,9 +64,10 @@ public class TestScores {
     
     @Test
     public void testReadScoreList() throws FileNotFoundException, IOException {
+        s.readScoreList();
         String aakkoset = "abcdefghijklmnopqrstuvxyz";
         String string = "";
-        for (Entry<String, Integer> entry : s.readScoreList().entrySet()) {
+        for (Entry<String, Integer> entry : s.getScoreList().entrySet()) {
             String key = entry.getKey();
             int value = entry.getValue();
             string += key + " " + value + " ";
@@ -73,6 +75,19 @@ public class TestScores {
         assertEquals("a 0 b 1 c 2 d 3 e 4 f 5 g 6 h 7 i 8 j 9 ", string);
         
         }
+    
+    @Test
+    public void testGetPlayer() throws FileNotFoundException, IOException {
+        s.readScoreList();
+        String aakkoset = "abcdefghijklmnopqrstuvxyz";
+        for (int i = 0; i < 10; i++) {
+            Player p = new Player(""+aakkoset.charAt(i));
+            p.setScore(i);
+            assertEquals(p.getName(), s.getPlayer(aakkoset.charAt(i) + "").getName());
+            System.out.println(s.getPlayer(aakkoset.charAt(i)+"").getScore());
+            assertEquals(p.getScore(), s.getPlayer(aakkoset.charAt(i) + "").getScore());
+        }
+    }
         
     }
 

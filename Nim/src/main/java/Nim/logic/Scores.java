@@ -30,8 +30,13 @@ public class Scores {
         return new Scores();
 
     }
+
+    public Map<String, Integer> getScoreList() {
+        return scoreList;
+    }
     
-    public Map<String, Integer> readScoreList() throws FileNotFoundException, IOException {
+    
+    public void readScoreList() throws FileNotFoundException, IOException {
         String line1 = "";
         int line2 = 0;
         File file = new File(sf);
@@ -42,12 +47,15 @@ public class Scores {
             scoreList.put(line1, line2);
             line1 = br.readLine(); 
         }
-        return scoreList;
     }
 
     
     public Player getPlayer(String sp) {
-        return new Player(sp);
+        Player p = new Player(sp);
+        if (scoreList.containsKey(sp)) {
+            p.setScore(scoreList.get(sp));
+        }
+        return p;
     }
 
     public void addScore(Player sp) {
