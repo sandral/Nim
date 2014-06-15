@@ -5,6 +5,8 @@
 package Nim;
 
 import Nim.logic.NimApplication;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -48,9 +50,9 @@ public class TestNimApplication {
         assertEquals(null, application.p2);
         assertEquals("", application.winner);
     }
-/*
+
     @Test
-    public void testStartGame() {
+    public void testStartGame() throws FileNotFoundException, IOException {
         application.startGame("p1", "p2");
         assertFalse(application.currentGame == null);
         assertTrue(application.gameStarted());
@@ -58,7 +60,7 @@ public class TestNimApplication {
     }
 
     @Test
-    public void testStackSizes() {
+    public void testStackSizes() throws FileNotFoundException, IOException {
         application.startGame("p1", "p2");
         assertFalse(application.stackSizes() == null);
         Random random = new Random();
@@ -95,7 +97,7 @@ public class TestNimApplication {
     }
 
     @Test
-    public void testCurrentPlayerName() {
+    public void testCurrentPlayerName() throws FileNotFoundException, IOException {
         Random random = new Random();
         application.startGame("p1", "p2");
         assertEquals("p1", application.currentPlayerName());
@@ -134,6 +136,6 @@ public class TestNimApplication {
         application.makeMove(4, 10);
         assertEquals("p2", application.currentPlayerName());
     }
-*/    
+   
     
 }

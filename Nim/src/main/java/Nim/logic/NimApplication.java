@@ -4,6 +4,9 @@
  */
 package Nim.logic;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /**
  * Sovelluslogiikka luokka.
  */
@@ -33,7 +36,8 @@ public class NimApplication {
      * @param sp1 Pelaajan 1 nimi
      * @param sp2 Pelaajan 2 nimi
      */
-    public void startGame(String sp1, String sp2) {
+    public void startGame(String sp1, String sp2) throws FileNotFoundException, IOException {
+        scorelist.readScoreList();
         p1 = scorelist.getPlayer(sp1);
         p2 = scorelist.getPlayer(sp2);
         currentGame = new NimGame();
@@ -46,6 +50,10 @@ public class NimApplication {
      */
     public boolean gameStarted() {
         return currentGame != null;
+    }
+
+    public Scores getScorelist() {
+        return scorelist;
     }
 
     /**
@@ -138,9 +146,13 @@ public class NimApplication {
         if (currentGame.ended()) {
             if (currentPlayerName().equals(p1.getName())) {
                 p1.increaseScore();
+                scorelist.addScore(p1);
             } else {
                 p2.increaseScore();
+                scorelist.addScore(p2);
             }
+            scorelist.saveToFile();
+            System.out.println(scorelist.toString());
         }
     }
 
