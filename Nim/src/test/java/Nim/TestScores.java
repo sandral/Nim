@@ -84,11 +84,37 @@ public class TestScores {
             Player p = new Player(""+aakkoset.charAt(i));
             p.setScore(i);
             assertEquals(p.getName(), s.getPlayer(aakkoset.charAt(i) + "").getName());
-            System.out.println(s.getPlayer(aakkoset.charAt(i)+"").getScore());
             assertEquals(p.getScore(), s.getPlayer(aakkoset.charAt(i) + "").getScore());
         }
     }
-        
+    
+    @Test
+    public void testGetPlayer2() {
+        String aakkoset = "klmnopqrstuvxyz";
+        for (int i = 0; i < 10; i++) {
+            Player p = new Player(""+aakkoset.charAt(i));
+            assertEquals(p.getName(), s.getPlayer(aakkoset.charAt(i) + "").getName());
+            assertEquals(0, s.getPlayer(aakkoset.charAt(i)+"").getScore());
+        }
+    }
+    
+    @Test
+    public void testIncreaseAndAddScores() throws FileNotFoundException, IOException {
+        String aakkoset = "klmnopqrstuvxyz";
+        for (int i = 0; i < 10; i++) {
+        Player p = s.getPlayer(aakkoset.charAt(i)+"");
+        p.setScore(i);
+        s.addScore(p);
+        }
+        s.saveToFile();
+        s.readScoreList();
+        for (int i = 0; i < 10; i++) {
+            assertEquals(aakkoset.charAt(i)+"", s.getPlayer(aakkoset.charAt(i)+"").getName());
+            assertEquals(i, s.getPlayer(aakkoset.charAt(i)+"").getScore());
+        }
+    }
+    
+            
     }
 
     
