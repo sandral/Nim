@@ -48,7 +48,7 @@ public class TestScores {
     @Test
     public void testAddScore() {
         String aakkoset = "abcdefghijklmnopqrstuvxyz";
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 10; i++) {
             Player p = new Player("" + aakkoset.charAt(i));
             p.setScore(i);
             s.addScore(p);
@@ -63,10 +63,20 @@ public class TestScores {
     
     @Test
     public void testReadScoreList() throws FileNotFoundException, IOException {
-        System.out.println(s.readScoreList());
+        String aakkoset = "abcdefghijklmnopqrstuvxyz";
+        String string = "";
+        for (Entry<String, Integer> entry : s.readScoreList().entrySet()) {
+            String key = entry.getKey();
+            int value = entry.getValue();
+            string += key + " " + value + " ";
+        }
+        assertEquals("a 0 b 1 c 2 d 3 e 4 f 5 g 6 h 7 i 8 j 9 ", string);
+        
+        }
+        
     }
 
     
 
 
-}
+

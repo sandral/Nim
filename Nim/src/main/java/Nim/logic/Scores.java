@@ -59,13 +59,18 @@ public class Scores {
         for (Entry<String, Integer> entry : scoreList.entrySet()) {
             String key = entry.getKey();
             int value = entry.getValue();
-            s = key + "\n" + value + "\n" + s;
+            s = key + " " + value + "\n" + s;
         }
         return s;
     }
 
     public void saveToFile() {
-        String s = this.toString();
+        String s = "";
+        for (Entry<String, Integer> entry : scoreList.entrySet()) {
+            String key = entry.getKey();
+            int value = entry.getValue();
+            s = key + "\n" + value + "\n" + s;
+        }
         try {
             File file = new File(sf);
             BufferedWriter output = new BufferedWriter(new FileWriter(file));
