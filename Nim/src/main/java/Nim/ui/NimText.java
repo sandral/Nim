@@ -90,7 +90,7 @@ public class NimText {
                 application.increaseWinnerScore();
                 break;
             }
-            System.out.println("Pelaaja " + application.currentPlayerName()
+            System.out.println("Pelaaja " + application.currentPlayer().getName()
                     + ", mistä kasasta haluat poistaa tikkuja?");
             int index = Integer.parseInt(scanner.nextLine());
             System.out.println("Kuinka monta tikkua haluat poistaa?");
@@ -101,7 +101,7 @@ public class NimText {
             }
         }
 
-        if (application.getLastWinner().equals(p1)) {
+        if (application.getLastWinner().getName().equals(p1)) {
             System.out.println("Voittaja on " + p1);
         } else {
             System.out.println("Voittaja on " + p2);
