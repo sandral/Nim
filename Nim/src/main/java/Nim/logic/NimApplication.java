@@ -51,7 +51,7 @@ public class NimApplication {
     public boolean gameStarted() {
         return currentGame != null;
     }
-
+    
     public Scores getScorelist() {
         return scorelist;
     }
@@ -144,7 +144,7 @@ public class NimApplication {
      */
     public void increaseWinnerScore() {
         currentPlayer().increaseScore();
-        scorelist.addScore(currentPlayer());
+        //scorelist.addScore(currentPlayer());
         scorelist.saveToFile();
     }
 

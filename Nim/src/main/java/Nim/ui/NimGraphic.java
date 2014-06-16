@@ -359,7 +359,7 @@ public class NimGraphic extends javax.swing.JFrame {
             application.increaseWinnerScore();
             JOptionPane.showMessageDialog(null, "voittaja on: " + application.getLastWinner().getName() + "\n" + 
                     "voittajan pisteet: " + application.getLastWinner().getScore(), "Peli päättyi!", JOptionPane.PLAIN_MESSAGE);
-            jTextArea1.setText(application.getScorelist().toString());
+            jTextArea1.setText(application.getScorelist().toRankingString());
         }
         else {
             jTextArea1.setText("Sinun vuorosi, \n" + application.currentPlayer().getName() + "!");

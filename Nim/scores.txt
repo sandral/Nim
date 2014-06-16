@@ -3,7 +3,7 @@ t
 sulo
 2
 sandra
-5
+7
 s
 8
 r
@@ -22,7 +22,15 @@ lsdkfj
 1
 l
 1
+kjh
+1
 kalle
 2
 k
 0
+fhgj
+0
+b
+0
+a
+2

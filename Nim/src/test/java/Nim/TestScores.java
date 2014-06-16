@@ -45,7 +45,7 @@ public class TestScores {
     }
     
     
-
+/*
     @Test
     public void testAddScore() {
         String aakkoset = "abcdefghijklmnopqrstuvxyz";
@@ -113,7 +113,7 @@ public class TestScores {
             assertEquals(i, s.getPlayer(aakkoset.charAt(i)+"").getScore());
         }
     }
-    
+  */  
             
     }
 
