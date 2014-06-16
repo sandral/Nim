@@ -16,11 +16,18 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+/**
+ * Tuloslista-luokka. 
+ * 
+ */
 public class Scores {
 
     private Map<String, Integer> scoreList;
     private String sf;
 
+    /**
+     * Konstruktori.
+     */
     public Scores() {
         scoreList = new TreeMap();
         sf = "scores.txt";
@@ -31,11 +38,21 @@ public class Scores {
 
     }
 
+    /**
+     * Getteri.
+     * @return TreeMap, jonka avain on pelaajan nimi ja arvo pelaajan pistemäärä
+     */
     public Map<String, Integer> getScoreList() {
         return scoreList;
     }
     
     
+    /**
+     * Hakee tiedostosta pelaajien nimet ja pistemäärät ja sijoittaa ne 
+     * treemappiin.
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public void readScoreList() throws FileNotFoundException, IOException {
         String line1 = "";
         int line2 = 0;
@@ -50,6 +67,11 @@ public class Scores {
     }
 
     
+    /**
+     * Etsii listasta pelaajan pistemäärän nimen perusteella.
+     * @param sp Pelaajan nimi
+     * @return Pelaaja, jonka nimi ja pistemäärä vastaa haetun pelaajan nimeä ja pistemäärää.
+     */
     public Player getPlayer(String sp) {
         Player p = new Player(sp);
         if (scoreList.containsKey(sp)) {
@@ -58,6 +80,10 @@ public class Scores {
         return p;
     }
 
+    /**
+     * Lisää pelaajan pistelistalle.
+     * @param sp Pistelistalle lisättävä pelaaja.
+     */
     public void addScore(Player sp) {
         scoreList.put(sp.name, sp.score);
     }
@@ -72,6 +98,9 @@ public class Scores {
         return s;
     }
 
+    /**
+     * Tallentaa pistelistan tiedostoon.
+     */
     public void saveToFile() {
         String s = "";
         for (Entry<String, Integer> entry : scoreList.entrySet()) {

@@ -40,7 +40,7 @@ public class NimGraphic extends javax.swing.JFrame {
      * @throws IOException
      */
     public NimGraphic() throws IOException {
-
+       
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
                 stacks[i][j] = new ImagePanel();
@@ -220,7 +220,7 @@ public class NimGraphic extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton7)
                             .addComponent(jButton8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
