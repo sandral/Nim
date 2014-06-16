@@ -25,7 +25,7 @@ public class NimApplication {
         currentGame = null;
         p1 = null;
         p2 = null;
-        scorelist = Scores.initScorelist();
+        scorelist = new Scores("scores.txt");
         winner = null;
     }
 

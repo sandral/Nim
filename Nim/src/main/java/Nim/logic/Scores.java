@@ -24,19 +24,14 @@ import java.util.TreeMap;
 public class Scores {
 
     private Map<String, Player> scoreList;
-    private String sf;
+    private static String sf;
 
     /**
      * Konstruktori.
      */
-    public Scores() {
+    public Scores(String sf) {
         scoreList = new TreeMap();
-        sf = "scores.txt";
-    }
-
-    static Scores initScorelist() {
-        return new Scores();
-
+        this.sf = sf;
     }
 
     /**
@@ -94,12 +89,11 @@ public class Scores {
      */
 
     /*
-    public void addScore(Player sp) {
-        scoreList.put(sp.name, sp);
-    }
+     public void addScore(Player sp) {
+     scoreList.put(sp.name, sp);
+     }
 
-    */
-
+     */
     public String toString() {
         String s = "";
         for (Entry<String, Player> entry : scoreList.entrySet()) {
