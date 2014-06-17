@@ -51,7 +51,7 @@ public class NimApplication {
     public boolean gameStarted() {
         return currentGame != null;
     }
-    
+
     public Scores getScorelist() {
         return scorelist;
     }
@@ -148,16 +148,13 @@ public class NimApplication {
         scorelist.saveToFile();
     }
 
-/**
- * Palauttaa totuusarvon true, jos peli päättyi.
- *
- * @return totuusarvo, onko peli päättynyt.
- */
-public boolean gameEnded() {
+    /**
+     * Palauttaa totuusarvon true, jos peli päättyi.
+     *
+     * @return totuusarvo, onko peli päättynyt.
+     */
+    public boolean gameEnded() {
         return currentGame.ended();
     }
-/*
-    public String scores() {
-        return scorelist.toString();
-    }*/
+   
 }

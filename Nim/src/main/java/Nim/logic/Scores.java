@@ -43,9 +43,9 @@ public class Scores {
     }
 
     /**
-     * Hakee tiedostosta pelaajien nimet ja pistemäärät ja sijoittaa ne
-     * treemappiin.
-     *
+     * Hakee tiedostosta pelaajien nimet ja pistemäärät, luo nimeä ja 
+     * pistemäärää vastaavat pelaajat, ja sijoittaa ne treemappiin.
+     * 
      * @throws FileNotFoundException
      * @throws IOException
      */
@@ -65,8 +65,9 @@ public class Scores {
     }
 
     /**
-     * Etsii listasta pelaajan pistemäärän nimen perusteella.
-     *
+     * Etsii listasta pelaajan nimen perusteella.
+     * Jos pelaajaa ei löydy, luodaan uusi samalla nimellä varustettu
+     * pelaaja, jonka pistemäärä on 0.
      * @param sp Pelaajan nimi
      * @return Pelaaja, jonka nimi ja pistemäärä vastaa haetun pelaajan nimeä ja
      * pistemäärää.
@@ -80,19 +81,7 @@ public class Scores {
             return p;
         }
     }
-    /*
-     /**
-     * Lisää pelaajan pistelistalle.
-     *
-     * @param sp Pistelistalle lisättävä pelaaja.
-     */
 
-    /*
-     public void addScore(Player sp) {
-     scoreList.put(sp.name, sp);
-     }
-
-     */
     public String toString() {
         String s = "";
         for (Entry<String, Player> entry : scoreList.entrySet()) {
@@ -102,7 +91,12 @@ public class Scores {
         }
         return s;
     }
-
+    /**
+     * Luo listan, jossa pelaajat on järjestetty pistemäärän perusteella
+     * laskevaan suuruusjärjestykseen.
+     * @return Merkkijono, joka sisältää pistelistalla olevien pelaajien 
+     * nimet ja pistemäärät omilla riveillään.
+     */
     public String toRankingString() {
         PriorityQueue<Player> q = new PriorityQueue<Player>(10);
         q.addAll(scoreList.values());
@@ -115,7 +109,8 @@ public class Scores {
     }
 
     /**
-     * Tallentaa pistelistan tiedostoon.
+     * Tallentaa pistelistan sisältämien pelaajien nimet ja pisteet 
+     * tiedostoon.
      */
     public void saveToFile() {
         String s = "";

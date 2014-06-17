@@ -48,6 +48,7 @@ public class NimGame {
 
     /**
      * Metodi, joka poistaa halutusta tikkukasasta halutun määrän tikkuja.
+     * Poiston lopuksi pelivuoro vaihtuu.
      *
      * @param index Se tikkukasa, josta tikkuja halutaan poistaa.
      * @param number Poistettavien tikkujen määrä.
@@ -64,8 +65,8 @@ public class NimGame {
     }
 
     /**
-     *
-     * @return
+     * Getteri
+     * @return luku 1 tai 2 sen mukaan, onko pelaaja 1 vai 2 vuorossa.
      */
     public int getTurn() {
         return turn;
