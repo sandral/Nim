@@ -43,13 +43,13 @@ public class TestNimApplication {
     @After
     public void tearDown() {
     }
-/*
+
     @Test
     public void test1() {
         assertEquals(null, application.currentGame);
         assertEquals(null, application.p1);
         assertEquals(null, application.p2);
-        assertEquals("", application.winner);
+        assertEquals(null, application.winner);
     }
 
     @Test
@@ -95,8 +95,8 @@ public class TestNimApplication {
 
 
 
-    }*/
-/*
+    }
+
     @Test
     public void testCurrentPlayerName() throws FileNotFoundException, IOException {
         Random random = new Random();
@@ -107,34 +107,34 @@ public class TestNimApplication {
         application.makeMove(1, 1);
         assertEquals("p1", application.currentPlayer().getName());
         application.makeMove(2, 1);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(3, 1);
-        assertEquals("p1", application.currentPlayerName());
+        assertEquals("p1", application.currentPlayer().getName());
         application.makeMove(4, 1);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(100, 100);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(0, 10);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(0, 0);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(1, 0);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(2, 0);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(3, 0);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(4, 0);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(0, 10);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(1, 10);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(2, 10);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(3, 10);
-        assertEquals("p2", application.currentPlayerName());
+        assertEquals("p2", application.currentPlayer().getName());
         application.makeMove(4, 10);
-        assertEquals("p2", application.currentPlayerName());
-    }*/
+        assertEquals("p2", application.currentPlayer().getName());
+    }
 }

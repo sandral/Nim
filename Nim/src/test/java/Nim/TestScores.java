@@ -4,6 +4,7 @@
  */
 package Nim;
 
+import Nim.logic.NimApplication;
 import Nim.logic.Player;
 import Nim.logic.Scores;
 import java.io.FileNotFoundException;
@@ -19,12 +20,12 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author reipas
+ *
  */
 public class TestScores {
 
     Scores s = new Scores("testfile.txt");
-    
+
     public TestScores() {
     }
 
@@ -43,8 +44,6 @@ public class TestScores {
     @After
     public void tearDown() {
     }
-    
-    
 
     @Test
     public void testAddScore() {
@@ -53,13 +52,13 @@ public class TestScores {
             Player p = new Player("" + aakkoset.charAt(i));
             s.getPlayer(p.getName());
             p.setScore(i);
+            s.getScoreList().put(p.getName(), p);
             s.saveToFile();
             assertEquals(aakkoset.charAt(i) + "", p.getName());
             assertEquals(i, p.getScore());
         }
     }
-    
-    
+
     @Test
     public void testReadScoreList() throws FileNotFoundException, IOException {
         s.readScoreList();
@@ -71,52 +70,45 @@ public class TestScores {
             string += key + " " + value + " ";
         }
         System.out.println(string);
-        //assertEquals("a 1 b 2 c  d 0 e 0 f 0 g 0 h 0 i 0 j 0 ", string);
-        
-        }
-        
-    /*
+        assertEquals("a 0 b 1 c 2 d 3 e 4 f 5 g 6 h 7 i 8 j 9 ", string);
+
+    }
+
     @Test
     public void testGetPlayer() throws FileNotFoundException, IOException {
         s.readScoreList();
         String aakkoset = "abcdefghijklmnopqrstuvxyz";
         for (int i = 0; i < 10; i++) {
-            Player p = new Player(""+aakkoset.charAt(i));
+            Player p = new Player("" + aakkoset.charAt(i));
             p.setScore(i);
             assertEquals(p.getName(), s.getPlayer(aakkoset.charAt(i) + "").getName());
             assertEquals(p.getScore(), s.getPlayer(aakkoset.charAt(i) + "").getScore());
         }
-    }*/
-    
+    }
+
     @Test
     public void testGetPlayer2() {
         String aakkoset = "klmnopqrstuvxyz";
         for (int i = 0; i < 10; i++) {
-            Player p = new Player(""+aakkoset.charAt(i));
+            Player p = new Player("" + aakkoset.charAt(i));
+            s.getPlayer(p.getName());
             assertEquals(p.getName(), s.getPlayer(aakkoset.charAt(i) + "").getName());
-            assertEquals(0, s.getPlayer(aakkoset.charAt(i)+"").getScore());
+            assertEquals(0, s.getPlayer(aakkoset.charAt(i) + "").getScore());
         }
     }
-    
+
     @Test
     public void testIncreaseAndAddScores() throws FileNotFoundException, IOException {
         String aakkoset = "klmnopqrstuvxyz";
         for (int i = 0; i < 10; i++) {
-            Player p = s.getPlayer(aakkoset.charAt(i)+"");
+            Player p = s.getPlayer(aakkoset.charAt(i) + "");
             p.setScore(i);
         }
         s.saveToFile();
         s.readScoreList();
         for (int i = 0; i < 10; i++) {
-            assertEquals(aakkoset.charAt(i)+"", s.getPlayer(aakkoset.charAt(i)+"").getName());
-            assertEquals(i, s.getPlayer(aakkoset.charAt(i)+"").getScore());
+            assertEquals(aakkoset.charAt(i) + "", s.getPlayer(aakkoset.charAt(i) + "").getName());
+            assertEquals(i, s.getPlayer(aakkoset.charAt(i) + "").getScore());
         }
     }
-   
-            
-    }
-
-    
-
-
-
+}
