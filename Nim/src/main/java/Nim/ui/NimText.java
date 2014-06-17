@@ -114,8 +114,8 @@ public class NimText {
      */
     
     private static void showScores() throws FileNotFoundException, IOException {
-        application.getScorelist().readScoreList();
         System.out.println("");
-        System.out.println(application.getScorelist().toString());
+        System.out.println("Pisteet: ");
+        System.out.println(application.getScorelist().toRankingString());
     }
 }
