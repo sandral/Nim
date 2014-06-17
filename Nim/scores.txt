@@ -1,5 +1,5 @@
 sulo
-1
+2
 sandra
 3
 onerva
@@ -7,4 +7,4 @@ onerva
 hampus
 1
 gaius
-1
+2

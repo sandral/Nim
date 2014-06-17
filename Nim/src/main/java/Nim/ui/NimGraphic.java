@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  * Graafinen käyttöliittymä -luokka.
  */
 public class NimGraphic extends javax.swing.JFrame {
-    
+
     static NimApplication application;
     ImagePanel[][] stacks = new ImagePanel[5][10];
     int state;
@@ -32,7 +32,7 @@ public class NimGraphic extends javax.swing.JFrame {
      * @throws IOException
      */
     public NimGraphic() throws IOException {
-       
+
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
                 stacks[i][j] = new ImagePanel();
@@ -44,11 +44,8 @@ public class NimGraphic extends javax.swing.JFrame {
 
         validate();
         initComponents();
-       
-    }
-    
 
-    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -268,20 +265,22 @@ public class NimGraphic extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         String p1 = jTextField1.getText();
         String p2 = jTextField2.getText();
-        try {       
-            application.startGame(p1, p2);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(NimGraphic.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(NimGraphic.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
-          //  Logger.getLogger(NimGraphic.class.getName()).log(Level.SEVERE, null, ex);
-        jTextArea1.setText("Sinun vuorosi, \n" + application.currentPlayer().getName() + "!");
-        state = -1;
-        stateChosen = 0;
-        updateStacks();
+        if (!p1.equals("") && !p2.equals("")) {
+            try {
+                application.startGame(p1, p2);
 
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(NimGraphic.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(NimGraphic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            //  Logger.getLogger(NimGraphic.class.getName()).log(Level.SEVERE, null, ex);
+            jTextArea1.setText("Sinun vuorosi, \n" + application.currentPlayer().getName() + "!");
+            state = -1;
+            stateChosen = 0;
+            updateStacks();
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
@@ -290,19 +289,20 @@ public class NimGraphic extends javax.swing.JFrame {
      * @param i indeksi joka liittää napin kuhunkin tikkukasaan.
      */
     private void pressButton(int i) {
+        if (application.gameStarted()) {
+            if (state == i - 1) {
+                stateChosen++;
+            } else {
+                state = i - 1;
+                stateChosen = 1;
+            }
 
-        if (state == i - 1) {
-            stateChosen++;
-        } else {
-            state = i - 1;
-            stateChosen = 1;
+            if (application.stackSizes()[state] - stateChosen < 0) {
+                stateChosen = 0;
+            }
+
+            updateStacks();
         }
-
-        if (application.stackSizes()[state] - stateChosen < 0) {
-            stateChosen = 0;
-        }
-
-        updateStacks();
     }
 
     /**
@@ -345,28 +345,28 @@ public class NimGraphic extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        if (!application.legalMove(state, stateChosen)) {
-            // Siirto ei toimi!
-            return;
+        if (application.gameStarted()) {
+            if (!application.legalMove(state, stateChosen)) {
+                // Siirto ei toimi!
+                return;
+            }
+
+            application.makeMove(state, stateChosen);
+
+            if (application.gameEnded()) {
+                jTextArea1.setText("Peli päättyi!");
+                application.increaseWinnerScore();
+                JOptionPane.showMessageDialog(null, "voittaja on: " + application.getLastWinner().getName() + "\n"
+                        + "voittajan pisteet: " + application.getLastWinner().getScore(), "Peli päättyi!", JOptionPane.PLAIN_MESSAGE);
+                jTextArea1.setText("Pisteet:\n" + application.getScorelist().toRankingString());
+            } else {
+                jTextArea1.setText("Sinun vuorosi, \n" + application.currentPlayer().getName() + "!");
+            }
+
+            state = -1;
+            stateChosen = 0;
+            updateStacks();
         }
-        
-        application.makeMove(state, stateChosen);
-                
-        if (application.gameEnded()) {
-            jTextArea1.setText("Peli päättyi!");
-            application.increaseWinnerScore();
-            JOptionPane.showMessageDialog(null, "voittaja on: " + application.getLastWinner().getName() + "\n" + 
-                    "voittajan pisteet: " + application.getLastWinner().getScore(), "Peli päättyi!", JOptionPane.PLAIN_MESSAGE);
-            jTextArea1.setText("Pisteet:\n" + application.getScorelist().toRankingString());
-        }
-        else {
-            jTextArea1.setText("Sinun vuorosi, \n" + application.currentPlayer().getName() + "!");
-        }
-        
-        state = -1;
-        stateChosen = 0;
-        updateStacks();
-        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -421,7 +421,6 @@ public class NimGraphic extends javax.swing.JFrame {
             }
         });
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -454,8 +453,7 @@ public class NimGraphic extends javax.swing.JFrame {
             } catch (IOException exception) {
             }
         }
-        
-    
+
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
