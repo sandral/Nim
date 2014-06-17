@@ -127,12 +127,12 @@
                               <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="288" max="32767" attributes="0"/>
+                          <EmptySpace pref="289" max="32767" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="376" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="375" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jButton4" min="-2" pref="25" max="-2" attributes="0"/>
@@ -250,7 +250,7 @@
                   <Color blue="99" green="0" red="99" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="10"/>
-                <Property name="text" type="java.lang.String" value="Tervetuloa &#xa;pelaamaan&#xa;Nim-peli&#xe4;!!!&#xa;&#xa;Ohjeet:&#xa;Saat poistaa tikkuja&#xa; yhdest&#xe4; kasasta &#xa;kerrallaan,niin monta &#xa;tikkua kuin haluat.&#xa;&#xa;Pelin voittaa se &#xa;pelaaja, joka saa &#xa;viimeisen tikun."/>
+                <Property name="text" type="java.lang.String" value="Tervetuloa &#xa;pelaamaan&#xa;Nim-peli&#xe4;!!!&#xa;&#xa;Ohjeet:&#xa;Saat poistaa tikkuja&#xa; yhdest&#xe4; kasasta &#xa;kerrallaan,niin monta &#xa;tikkua kuin haluat.&#xa;&#xa;Pelin voittaa se &#xa;pelaaja, joka saa &#xa;viimeisen tikun.&#xa;&#xa;Kun olet tehnyt &#xa;siirtosi, paina &quot;Ok&quot;."/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>

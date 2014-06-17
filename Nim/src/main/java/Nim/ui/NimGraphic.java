@@ -166,7 +166,7 @@ public class NimGraphic extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(153, 0, 153));
         jTextArea1.setRows(10);
-        jTextArea1.setText("Tervetuloa \npelaamaan\nNim-peliä!!!\n\nOhjeet:\nSaat poistaa tikkuja\n yhdestä kasasta \nkerrallaan,niin monta \ntikkua kuin haluat.\n\nPelin voittaa se \npelaaja, joka saa \nviimeisen tikun.");
+        jTextArea1.setText("Tervetuloa \npelaamaan\nNim-peliä!!!\n\nOhjeet:\nSaat poistaa tikkuja\n yhdestä kasasta \nkerrallaan,niin monta \ntikkua kuin haluat.\n\nPelin voittaa se \npelaaja, joka saa \nviimeisen tikun.\n\nKun olet tehnyt \nsiirtosi, paina \"Ok\".");
         jTextArea1.setBorder(null);
         jTextArea1.setMaximumSize(new java.awt.Dimension(2147, 2147));
         jScrollPane1.setViewportView(jTextArea1);
@@ -224,11 +224,11 @@ public class NimGraphic extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton7)
                             .addComponent(jButton8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
