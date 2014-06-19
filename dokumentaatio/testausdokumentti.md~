@@ -1,0 +1,11 @@
+##Testausdokumentti
+
+###Yleistä
+
+Testien kirjoittaminen oli yleisesti ottaen hieman hankalaa. Kun on kyse näin yksinkertaisesta ohjelmasta, on vaikeaa keksiä mielekkäitä testejä, ja välillä tuntuikin, että piti keksimällä keksiä, että mitä voisi testata. Pistelistaa tehdessä koin, että testeistä oli oikeasti hyötyä, ja ne kertoivat itsellekin, että ohjelma toimii, kuten pitääkin.
+
+###Mitä testattiin
+
+Pyrin kirjoittamaan testejä jokaisen luokan (käyttöliittymää lukuunottamatta) jokaiselle metodille paitsi getterreille ja settereille. Niillekin kirjoitin joitain testejä, jotta saisin viikkopalautukseen vaadittavat 10 testiä täyteen ;)
+
+####

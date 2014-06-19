@@ -46,7 +46,7 @@ public class TestScores {
     }
 
     @Test
-    public void testAddScore() {
+    public void testGetPlayerScore() {
         String aakkoset = "abcdefghijklmnopqrstuvxyz";
         for (int i = 0; i < 10; i++) {
             Player p = new Player("" + aakkoset.charAt(i));
