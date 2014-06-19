@@ -136,4 +136,4 @@ En tehnyt mitään
 Käytetty aika 0 h
 
 ####Torstai 19.6.
-Kirjoitin käyttöohjeet
+Kirjoitin käyttöohjeet, tarkistin, että kaikki on suurinpiirtein kunnossa palautusta varten. 
