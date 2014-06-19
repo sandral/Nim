@@ -128,4 +128,12 @@ Jouduin myös kirjoittamaan testejä uusiksi, sillä muutin muutamien parametrie
 Käytetty aika n. 6 h
 
 ####Tiistai 17.6.
-Korjailin testejä, päivitin tuntikirjanpitoa.
+Korjailin testejä, päivitin tuntikirjanpitoa. Kävin demotilaisuudessa. Piirsin sekvenssikaavioita uusiksi.
+Käytetty aika n. 3,5 h
+
+####Keskiviikko 18.6.
+En tehnyt mitään
+Käytetty aika 0 h
+
+####Torstai 19.6.
+Kirjoitin käyttöohjeet
