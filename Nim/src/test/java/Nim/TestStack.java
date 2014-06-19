@@ -19,18 +19,13 @@ import static org.junit.Assert.*;
  */
 public class TestStack {
 
-    static Stack stack1;
-    static Stack stack2;
-    static Stack stack3;
 
     public TestStack() {
     }
 
     @BeforeClass
     public static void setUpClass() {
-        stack1 = new Stack(1);
-        stack2 = new Stack(17);
-        stack3 = new Stack(3);
+
     }
 
     @AfterClass
@@ -55,34 +50,29 @@ public class TestStack {
 
     @Test
     public void testSetSize() {
+        Stack stack = new Stack(1);
         for (int i = 0; i < 10; i++) {
-            stack1.setSize(i);
-            assertEquals(i, stack1.getSize());
+            stack.setSize(i);
+            assertEquals(i, stack.getSize());
         }
     }
 
     @Test
     public void testDecrease() {
+        Stack stack = new Stack(17);
         for (int i = 0; i < 17; i++) {
-            stack2.decrease();
-            assertEquals(16 - i, stack2.getSize());
+            stack.decrease();
+            assertEquals(16 - i, stack.getSize());
         }
     }
 
     @Test
     public void testIsEmpty() {
+        Stack stack = new Stack(17);
         for (int i = 0; i < 17; i++) {
-            stack2.decrease();
+            stack.decrease();
         }
-        assertTrue(stack2.isEmpty());
-    }
-
-    @Test
-    public void testDecrease2() {
-        for (int i = 0; i < 3; i++) {
-            stack3.decrease();
-        }
-        assertTrue(stack3.isEmpty());
+        assertTrue(stack.isEmpty());
     }
 
     @Test

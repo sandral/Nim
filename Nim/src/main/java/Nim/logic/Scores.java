@@ -53,6 +53,7 @@ public class Scores {
         String line1 = "";
         int line2 = 0;
         File file = new File(sf);
+        file.createNewFile();
         BufferedReader br = new BufferedReader(new FileReader(file));
         line1 = br.readLine();
         while (line1 != null) {
