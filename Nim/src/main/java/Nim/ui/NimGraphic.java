@@ -449,7 +449,7 @@ public class NimGraphic extends javax.swing.JFrame {
 
         public ImagePanel() {
             try {
-                image = ImageIO.read(new File("tikku2.gif"));
+                image = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("tikku2.gif"));
             } catch (IOException exception) {
             }
         }
