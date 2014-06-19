@@ -265,6 +265,9 @@ public class NimGraphic extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         String p1 = jTextField1.getText();
         String p2 = jTextField2.getText();
+        if (p1.trim().equals("") || (p2.trim().equals(""))) {
+            JOptionPane.showMessageDialog(null, "Anna pelaajien nimet!", "", JOptionPane.PLAIN_MESSAGE);
+        }
         if (!p1.trim().equals("") && !p2.trim().equals("")) {
             try {
                 application.startGame(p1, p2);
